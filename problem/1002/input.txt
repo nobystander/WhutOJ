@@ -1,0 +1,7 @@
+1 - title
+
+2 - Time and memory limit             - specifies the maximum acceptable time and memory for a problem
+
+3 - Description                                  - describes the task you are supposed to solve
+
+4 - input format

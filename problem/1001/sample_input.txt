@@ -1,0 +1,3 @@
+Now the thing you are reading is an example for a problem description in ICPC style.
+
+The task for you is: Output "Hello World" in a separate line (An enter is needed).

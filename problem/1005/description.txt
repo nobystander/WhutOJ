@@ -1,0 +1,9 @@
+打开文件的更好的方法是通过 fopen() 函数。此函数为您提供比 readfile() 函数更多的选项。
+在课程中，我们将使用文本文件 "webdictionary.txt"：
+AJAX = Asynchronous JavaScript and XML
+CSS = Cascading Style Sheets
+HTML = Hyper Text Markup Language
+PHP = PHP Hypertext Preprocessor
+SQL = Structured Query Language
+SVG = Scalable Vector Graphics
+XML = EXtensible Markup Language
