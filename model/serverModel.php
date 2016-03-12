@@ -6,7 +6,7 @@ class serverModel extends Model
     private $standard;
     public function __construct() 
     {
-        parent::__construct(__CLASS__);
+        parent::__construct();
         $this->standard = $this->load('standard');
     }
     

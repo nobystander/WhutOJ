@@ -63,6 +63,7 @@ final class Application
             'mysql'     =>      SYS_LIB_PATH.'/lib_mysql.php',
             'template'     =>      SYS_LIB_PATH.'/lib_template.php',
             'standard'     =>      SYS_LIB_PATH.'/lib_standard.php',
+            'mqsender'      =>      SYS_LIB_PATH.'/lib_mqsender.php',
             //'cache'     =>      SYS_LIB_PATH.'/lib_cache.php',
             //'thumbnail'     =>      SYS_LIB_PATH.'/lib_thumbnail.php',
         );

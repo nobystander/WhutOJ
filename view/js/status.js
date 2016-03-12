@@ -29,7 +29,7 @@ var createStatus = function() {
             $.post("http://localhost/index.php?controller=server&action=getTotalSubmitNum",data, function(json)
             {
                 item = json;
-                alert(json);
+               // alert(json);
                var num = Math.ceil(item/status_item_per_page);
                 status_total_page = num;
                 status_now_page = 1;
