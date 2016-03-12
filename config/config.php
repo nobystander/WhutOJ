@@ -16,7 +16,7 @@ $CONFIG['system']['db'] = array(
 );
 
 $CONFIG['system']['lib'] = array(
-    'prefix'            =>      'ob'
+    'prefix'            =>      'ob' // app lib prefix54
 );
 
 $CONFIG['system']['route'] = array(
@@ -34,6 +34,14 @@ $CONFIG['system']['cache'] = array(
 
 $CONFIG['system']['cookie'] = array(
     'time'              =>      60*60*24,
+);
+
+$CONFIG['system']['mq'] = array(
+    'mq_host'       =>      'localhost',
+    'mq_port'       =>      '5672',
+    'mq_user'       =>      'guest',
+    'mq_password'   =>      'guest',
+    'mq_queue'      =>      'duang',
 );
 
 ?>
