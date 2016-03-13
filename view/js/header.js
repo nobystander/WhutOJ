@@ -102,7 +102,6 @@ var createHeader = function(){
 
             var data = "username=" + username + "&password=" + password + 
                     "&email=" + email + "&school=" + school;
-			alert('233');
             
             $.post(" /index.php?controller=server&action=signUp", data, function(json) {
                var flag = json.flag;

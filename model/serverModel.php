@@ -264,6 +264,53 @@ class serverModel extends Model
        
          $this->logIn();
      }
+
+     /**
+      * ajax更新函数
+      * @access      public 
+      */
+
+	 public function ()	
+	 {
+		$username = $_POST['username'];
+        $password = $_POST['password'];
+        $email = trim($_POST['email']);
+        $school = $_POST['school'];
+        $hashstr = sha1($username);
+   
+        if(!$this->standard->checkPassword($password))
+        {
+            $list = array('flag'=>'false','info'=>'密码格式错误');
+            echo json_encode($list);
+            return;
+        }  
+
+        if(!$this->standard->checkEmail($email))
+        {
+            $list = array('flag'=>'false','info'=>'邮箱格式错误');
+            echo json_encode($list);
+            return;
+        }
+
+        if(!$this->standard->checkSchool($school))
+        {
+            $list = array('flag'=>'false','info'=>'学校输入包含非法字符');
+            echo json_encode($list);
+            return;
+        }  
+        
+        $username = $this->standard->filterText($username);
+        $school = $this->standard->filterText($username);
+        $email = $this->standard->filterText($email);
+        
+        $password = sha1($password);
+
+        $this->db->execute("UPDATE oj_user(password,email,school,hashstr) VALUES(:username,:password,:email,:school,:hashstr)",
+                          array('password'=>$password,
+                          'email'=>$email,'school'=>$school,'hashstr'=>$hashstr));
+             
+	 	
+	 }
    
 }
 

@@ -134,7 +134,6 @@ $page_tile  页名
                             <li><a href="#">Virtual Contest</a></li>
                         </ul>
                     </li>
-                    <li><a href="/index.php?controller=ranklist#">Ranklist</a></li>
               </ul>
                 
                 <ul class="nav navbar-nav navbar-right">

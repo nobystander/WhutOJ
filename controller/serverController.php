@@ -19,6 +19,11 @@ class serverController extends Controller
         {
             $this->M->signUp();
         }
+
+		public function changeProfile()
+		{
+			$this->M->changeProfile();
+		}
     
         private function isNum($name)
         {

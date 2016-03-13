@@ -151,10 +151,20 @@ pre{
 	height: 400px;
 }
 
-#submit #btn-div {
+#btn-div {
 	text-align: center;
 	margin: 0 auto 18px;
 }
+
+
+/*..............EDIT-PROFILE..................*/
+
+#editprofile form {
+	width: 100%;
+	max-width: 600px;
+	margin: 20px auto 50px;
+}
+
 
 /*..............FOOTER..................*/
 .footer{

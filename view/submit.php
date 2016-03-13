@@ -36,7 +36,7 @@ $problem_id
 			</div>
 			<div class="form-group" id="btn-div">
 			    <div>
-			        <button type="submit" onclick="getSubmit().submit()" class="btn btn-primary">Submit</button>
+			        <button type="button" onclick="getSubmit().submit()" class="btn btn-primary">Submit</button>
 			    </div>
 			</div>
 	</form>
