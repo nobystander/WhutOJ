@@ -18,7 +18,7 @@ var createProblemList = function () {
                 data = "addition=" + arguments[0];
                 tmp = arguments[0];
             }
-            $.post("http://localhost/index.php?controller=server&action=getTotalProblemNum",data, function(json) {
+            $.post("/index.php?controller=server&action=getTotalProblemNum",data, function(json) {
                 var item = json;
                // alert(item);
                 var num = Math.ceil(item/problemlist_item_per_page);
@@ -105,11 +105,11 @@ var createProblemList = function () {
                 data += "&addition=" + input;
             }
 
-            $.post("http://localhost/index.php?controller=server&action=getProblem",data, function(json) {
+            $.post("/index.php?controller=server&action=getProblem",data, function(json) {
                 var num = json.length;
 
                 for(var i = 0;i < num;++i) {
-                    var hosts = "http://"+ location.host+"/index.php?controller=problem&problem_id=" + json[i]["problem_id"];
+                    var hosts = "/index.php?controller=problem&problem_id=" + json[i]["problem_id"];
                     var tmp = $("#problem-list .template .table-item .table-row").clone(true);
                    // tmp.children("td.flag").css("background-color","green");
                     tmp.children("td.id").children("a").text(json[i]["problem_id"]);

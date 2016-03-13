@@ -26,7 +26,7 @@ var createStatus = function() {
                     data = "problem_id=" + buf[2];
 
             }
-            $.post("http://localhost/index.php?controller=server&action=getTotalSubmitNum",data, function(json)
+            $.post("/index.php?controller=server&action=getTotalSubmitNum",data, function(json)
             {
                 item = json;
                // alert(json);
@@ -115,7 +115,7 @@ var createStatus = function() {
 
             }
 
-            $.post("http://localhost/index.php?controller=server&action=getSubmit",data, function(json)
+            $.post("/index.php?controller=server&action=getSubmit",data, function(json)
             {
 
 

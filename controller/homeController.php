@@ -9,10 +9,8 @@ class homeController extends Controller
 
         public function index($arr) 
         {
-            
-            
-            $data['page_title'] = 'index';
-            $data['user_name'] = 'asd';
+            $data['page_title'] = 'WHUTOJ';
+            #$data['user_name'] = 'asd';
             
             $this->showTemplate('header',$data);
             $this->showTemplate('footer',array());
@@ -25,8 +23,6 @@ class homeController extends Controller
             array_push($f,$t);
             echo $f[0]['sd'];
         }
-    
 }
-
 
 ?>

@@ -8,7 +8,7 @@ var convertDate = function (time) {
 }
 
 var getNowTime = function () {
-    $.post("http://localhost/index.php?controller=server&action=getNowTime",'', function(json) {
+    $.post("/index.php?controller=server&action=getNowTime",'', function(json) {
         var time = parseInt(json);
        // alert(convertDate(time));
     });

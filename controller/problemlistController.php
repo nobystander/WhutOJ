@@ -18,11 +18,10 @@ class problemlistController extends Controller
             FILTER_FLAG_STRIP_LOW | FILTER_FLAG_ENCODE_HIGH
         ); */
         $script = $this->convertScript(array('problemlist'));
-        $data = array('page_title'=>'asdasd','script'=>$script);
+        $data = array('page_title'=>'Problemlist','script'=>$script);
         $this->showTemplate('problemlist',$data);
         
     }
-    
     
 }
 ?>

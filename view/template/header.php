@@ -118,23 +118,23 @@ $page_tile  页名
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">WHUTOJ</a>
+              <a class="navbar-brand" href="/">WHUTOJ</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar-collapse-left">
                 <ul class="nav navbar-nav">
-                    <li><a href="#">Problem</a></li>
-                    <li><a href="#">Status</a></li>
+                    <li><a href="/index.php?controller=problemlist">Problemlist</a></li>
+                    <li><a href="/index.php?controller=status">Status</a></li>
+                    <li><a href="/index.php?controller=ranklist">Ranklist</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contest <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Real Contest</a></li>
                             <li><a href="#">Virtual Contest</a></li>
                         </ul>
-
                     </li>
-                    <li><a href="#">Ranklist</a></li>
+                    <li><a href="/index.php?controller=ranklist#">Ranklist</a></li>
               </ul>
                 
                 <ul class="nav navbar-nav navbar-right">
@@ -145,8 +145,8 @@ $page_tile  页名
                         echo '<li class="dropdown">';
                         echo '    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">' . $_SESSION['username'] .'<span class="caret"></span></a>';
                         echo '    <ul class="dropdown-menu">';
-                        echo '        <li><a href="#">View Profile</a></li>';
-                        echo '        <li><a href="#">Edit Profile</a></li>';
+                        echo '        <li><a href="/index.php?controller=showprofile">View Profile</a></li>';
+                        echo '        <li><a href="/index.php?controller=editprofile">Edit Profile</a></li>';
                         echo '    </ul>';
                         echo '</li>';
                     }

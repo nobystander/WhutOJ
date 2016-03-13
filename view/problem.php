@@ -1,4 +1,5 @@
 <!--
+$problem_id
 $page_title
 $title
 $time_limit
@@ -29,7 +30,7 @@ $source
             <button type="button" class="btn btn-default">Discuss</button>
         <?php
             if(isset($_SESSION['user_id']))
-                echo '<button type="button" class="btn btn-primary">Submit</button>';
+                echo '<button type="button" class="btn btn-primary" onclick=javascipt:location.href="\/index.php?controller=submit&problem_id=' , $problem_id , '">Submit</button>';
         ?>
         </div>
         <div class="problem-tag">
@@ -95,7 +96,7 @@ $source
             <button type="button" class="btn btn-default">Discuss</button>
             <?php
             if(isset($_SESSION['user_id']))
-                echo '<button type="button" class="btn btn-primary">Submit</button>';
+                echo '<button type="button" class="btn btn-primary" onclick=javascipt:location.href="\/index.php?controller=submit&problem_id=' , $problem_id , '">Submit</button>';
             ?>
         </div>
     </div>

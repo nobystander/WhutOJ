@@ -1,6 +1,7 @@
 <?php
     require_once('./view/template/header.php');
 ?>
+
 <div class="wrapper" id="status-list">
     <div class="container">
         <form action="javascript:void(0)" class="form-inline submit-search">

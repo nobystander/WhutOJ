@@ -6,10 +6,13 @@ class submitController extends Controller
         parent::__construct(__CLASS__);
     }
 
-    
-    public function index()
+    public function index($arr)
     {
-        echo $this->M->hello();
+		if($arr) $problem_id = $arr['problem_id'];
+		else $problem_id = 1000;
+        $script = $this->convertScript(array('submit'));
+        $data = array('page_title'=>'Submit','script'=>$script,'problem_id'=>$problem_id);
+        $this->showTemplate('submit',$data);
     }
 }
 

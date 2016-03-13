@@ -132,6 +132,30 @@ pre{
 }
 
 
+/*.................SUBMIT.................*/
+
+#submit form.submit {
+	width: 100%;
+	max-width: 600px;
+	margin: 10px auto 50px;
+}
+
+#submit form.submit fieldset {
+	width: 50%;
+	margin: auto;
+}
+
+#submit form.submit textarea {
+	display: block;
+	width: 100%;
+	height: 400px;
+}
+
+#submit #btn-div {
+	text-align: center;
+	margin: 0 auto 18px;
+}
+
 /*..............FOOTER..................*/
 .footer{
     width: 100%;

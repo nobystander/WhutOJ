@@ -12,7 +12,7 @@ var createHeader = function(){
     return {
 
         logOut : function () {
-            $.post("http://localhost/index.php?controller=server&action=logOut",'', function(json) 
+            $.post(" /index.php?controller=server&action=logOut",'', function(json) 
             {
                 location.reload();
             });
@@ -43,7 +43,7 @@ var createHeader = function(){
 
 
             var data = "username=" + username + "&password=" + password;
-            $.post("http://localhost/index.php?controller=server&action=logIn", data, function(json)         {
+            $.post(" /index.php?controller=server&action=logIn", data, function(json)         {
                var flag = json.flag;
                if(flag === 'false') {
                     $("#loginModal .login-info").text(json.info);
@@ -102,8 +102,9 @@ var createHeader = function(){
 
             var data = "username=" + username + "&password=" + password + 
                     "&email=" + email + "&school=" + school;
+			alert('233');
             
-            $.post("http://localhost/index.php?controller=server&action=signUp", data, function(json) {
+            $.post(" /index.php?controller=server&action=signUp", data, function(json) {
                var flag = json.flag;
                if(flag === 'false') {
                     $("#signupModal .signup-info").text(json.info);

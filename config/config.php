@@ -9,7 +9,7 @@
 $CONFIG['system']['db'] = array(
     'db_host'           =>      'localhost',
     'db_user'           =>      'root',
-    'db_password'       =>      'msi',
+    'db_password'       =>      'root',
     'db_database'       =>      'oj',
     'db_table_prefix'   =>      'oj_',
     'db_charset'        =>      'utf8'

@@ -13,6 +13,7 @@ class problemController extends Controller
     {
         $problem_id = $arr['problem_id'];
         
+        $data['problem_id'] = $problem_id;
         $data['page_title'] = 'Problem'.$problem_id;
         $data['title'] = $this->load('standard')->encodehtml($this->M->getTitle($problem_id));
         $data['time_limit'] = $this->M->getTimeLimit($problem_id);
