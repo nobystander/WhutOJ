@@ -50,7 +50,7 @@ class serverModel extends Model
             return $data[0]['language'];
         else return '';
     }
-    
+}
     
     private function makeupQuery($arr)
     {
@@ -272,18 +272,18 @@ class serverModel extends Model
 
 	 public function changeProfile()	
 	 {
-	  	$username = 'nobystander';
-	  	$password = '123321gyh';
-	  	$school='whut';
-	  	$email=trim('i@gyh.me');
-      	$hashstr = sha1($username);
+	//	  	$username = 'nobystander';
+	//    	$password = '123321gyh';
+	//    	$school='whut';
+	//    	$email=trim('i@gyh.me');
+    //    	$hashstr = sha1($username);
 		 
-//		$username = $_POST['username'];
-//        $password = $_POST['password'];
-//        $email = trim($_POST['email']);
-//        $school = $_POST['school'];
-//        $hashstr = sha1($username);
-//
+	  	$username = $_POST['username'];
+      	$password = $_POST['password'];
+      	$email = trim($_POST['email']);
+      	$school = $_POST['school'];
+      	$hashstr = sha1($username);
+
         if(!$this->standard->checkPassword($password))
         {
             $list = array('flag'=>'false','info'=>'密码格式错误');

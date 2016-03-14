@@ -11,7 +11,8 @@ $page_tile  页名
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
         <link type="text/css" rel="stylesheet" href="view/css/bootstrap.min.css<?php echo '?random='.rand() ?>" />
         <link type="text/css" rel="stylesheet" href="view/css/simple.css<?php echo '?random='.rand() ?>" />
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> <!--图标-->
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css">	<!--代码高亮-->
         <title>
         <?php
             echo $page_title;

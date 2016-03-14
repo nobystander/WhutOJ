@@ -178,6 +178,12 @@ pre{
 	font-size: 14px; 
 }
 
+/*..............SHOW-CODE..................*/
+
+#showcode .codebox{
+	width: 90%;
+	margin: 5px auto;
+}
 
 
 /*..............FOOTER..................*/
