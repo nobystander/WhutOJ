@@ -11,6 +11,7 @@ $page_tile  页名
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
         <link type="text/css" rel="stylesheet" href="view/css/bootstrap.min.css<?php echo '?random='.rand() ?>" />
         <link type="text/css" rel="stylesheet" href="view/css/simple.css<?php echo '?random='.rand() ?>" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <title>
         <?php
             echo $page_title;
@@ -144,7 +145,7 @@ $page_tile  页名
                         echo '<li class="dropdown">';
                         echo '    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">' . $_SESSION['username'] .'<span class="caret"></span></a>';
                         echo '    <ul class="dropdown-menu">';
-                        echo '        <li><a href="/index.php?controller=showprofile">View Profile</a></li>';
+                        echo '        <li><a href="/index.php?controller=viewprofile">View Profile</a></li>';
                         echo '        <li><a href="/index.php?controller=editprofile">Edit Profile</a></li>';
                         echo '    </ul>';
                         echo '</li>';

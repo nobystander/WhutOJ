@@ -1,6 +1,6 @@
 <?php
 
-class editprofileModel extends Model
+class viewprofileModel extends Model
 {
     public function __construct() 
     {

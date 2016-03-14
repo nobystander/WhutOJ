@@ -165,6 +165,20 @@ pre{
 	margin: 20px auto 50px;
 }
 
+/*..............VIEW-PROFILE..................*/
+
+#viewprofile li{
+	width: 90%;
+	margin: 20px auto;
+	font-size: 18px;
+}
+
+.problem-block a{
+	margin: 3px auto;
+	font-size: 14px; 
+}
+
+
 
 /*..............FOOTER..................*/
 .footer{

@@ -165,6 +165,7 @@ class serverModel extends Model
     {
         $username = $_POST['username'];
         $password = $_POST['password'];
+
         if(!$this->standard->checkUsername($username))
         {
             $list = array('flag'=>'false','info'=>'用户名或密码错误');
@@ -199,7 +200,6 @@ class serverModel extends Model
         setcookie('hashstr',$data[0]['hashstr'],time()+$config_cookie['time']);
         $list = array('flag'=>'true');
         echo json_encode($list); 
-
 
     } 
 
@@ -270,14 +270,20 @@ class serverModel extends Model
       * @access      public 
       */
 
-	 public function ()	
+	 public function changeProfile()	
 	 {
-		$username = $_POST['username'];
-        $password = $_POST['password'];
-        $email = trim($_POST['email']);
-        $school = $_POST['school'];
-        $hashstr = sha1($username);
-   
+	  	$username = 'nobystander';
+	  	$password = '123321gyh';
+	  	$school='whut';
+	  	$email=trim('i@gyh.me');
+      	$hashstr = sha1($username);
+		 
+//		$username = $_POST['username'];
+//        $password = $_POST['password'];
+//        $email = trim($_POST['email']);
+//        $school = $_POST['school'];
+//        $hashstr = sha1($username);
+//
         if(!$this->standard->checkPassword($password))
         {
             $list = array('flag'=>'false','info'=>'密码格式错误');
@@ -305,13 +311,13 @@ class serverModel extends Model
         
         $password = sha1($password);
 
-        $this->db->execute("UPDATE oj_user(password,email,school,hashstr) VALUES(:username,:password,:email,:school,:hashstr)",
+        $this->db->execute("UPDATE oj_user(password,email,school,hashstr) VALUES(:password,:email,:school,:hashstr) WHERE username=:username",
                           array('password'=>$password,
-                          'email'=>$email,'school'=>$school,'hashstr'=>$hashstr));
-             
-	 	
+                          'email'=>$email,'school'=>$school,'hashstr'=>$hashstr,'username'=>$username));
+
+        $list = array('flag'=>'true');
+		echo json_encode($list);
 	 }
-   
 }
 
 ?>

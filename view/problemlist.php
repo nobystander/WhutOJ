@@ -9,7 +9,7 @@
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="ID or Title or Source">
                     </div>
-                    <button type="submit" onclick="getProblemList().searchProblemListProblem()" class="btn btn-default">Search</button>
+                    <button type="submit" onclick="getProblemList().searchProblemListProblem()" class="btn btn-default"><i class="fa fa-search"></i></button>
                 </form>
             </div>
             <nav>
@@ -44,13 +44,13 @@
         <div class="page-nav">
             <li class="first">
                 <a href="javascript:void(0)" onclick="getProblemList().prevProblemListPage()" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
+                    <span aria-hidden="true"><i class="fa fa-chevron-left"></i></span>
                 </a>
             </li>
             <li class="common"><a href="javascript:void(0);" onclick="getProblemList().changeProblemListPage()"></a></li>
             <li class="last">
                 <a href="javascript:void(0)" onclick="getProblemList().nextProblemListPage()" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
+                    <span aria-hidden="true"><i class="fa fa-chevron-right"></i></span>
                 </a>
             </li>
         </div>

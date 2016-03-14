@@ -113,6 +113,7 @@ var createHeader = function(){
                     $("#loginModal .login-info").hide();
                     location.reload();
                 }
+			   	alert('233');
                 $("#signupModal .submit").button('reset');
 
             },"json");
