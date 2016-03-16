@@ -50,7 +50,6 @@ class serverModel extends Model
             return $data[0]['language'];
         else return '';
     }
-}
     
     private function makeupQuery($arr)
     {

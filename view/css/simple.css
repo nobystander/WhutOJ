@@ -168,16 +168,32 @@ pre{
 /*..............VIEW-PROFILE..................*/
 
 #viewprofile li{
-	width: 90%;
-	margin: 20px auto;
-	font-size: 18px;
+	width: 100%;
+	margin: 15px auto;
+	font-size: 19px;
+}
+
+.div-profile .div-canvas {
+	width: 80%;
+	height: 80%;
+	margin-top: 30px;
+}
+.div-profile .div-ul
+{
+	width: 70%;
+	height: 70%;
+	margin-top: 40px;
+}
+
+#canvas{
+	width:100%;
+	height:100%;
 }
 
 .problem-block a{
 	margin: 3px auto;
 	font-size: 14px; 
 }
-
 /*..............SHOW-CODE..................*/
 
 #showcode .codebox{
