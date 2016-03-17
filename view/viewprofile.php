@@ -2,7 +2,7 @@
 $username
 $school
 $email
-$rank
+$description
 
 -->
 
@@ -20,7 +20,7 @@ $rank
 					<li><i class="fa-li fa fa-user"></i><b>Username</b>&nbsp;&nbsp; <?php echo $username;?></li>
 					<li><i class="fa-li fa fa-university"></i><b>School</b>&nbsp;&nbsp; <?php echo $school;?></li>
 					<li><i class="fa-li fa fa-envelope"></i><b>Email</b>&nbsp;&nbsp; <?php echo $email;?></li>
-					<li><i class="fa-li fa fa-trophy"></i><b>Rank</b>&nbsp;&nbsp; <?php echo $rank;?></li>
+					<li><i class="fa-li fa fa-star"></i><b>Description</b>&nbsp;&nbsp;<br> <?php echo $description;?></li>
 				</ul>
 			</div>
         	</div>
