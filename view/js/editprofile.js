@@ -27,7 +27,6 @@ var createProfile = function() {
 
 			$(".profile-info").hide();
 			var data = "username=" + username + "&school=" + school + "&email=" + email + "&description=" + description;
-			return;
 			$.post("/index.php?controller=server&action=changeProfile", data, function(json) {
 				var flag = json.flag;
 				if(flag === 'true'){
