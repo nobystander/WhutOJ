@@ -30,30 +30,9 @@ $description
             <div class="col-md-4">
 			<input class="form-control" id="email" name="email" type="text" value=<?php echo '"',$email,'"'; ?>>
             </div>
-            <div class="col-md-4">
-            	<span class="modal-error profile-info" id="mail" style="display:none"></span>
-            </div>
-        </div>
+		</div>
 		<div class="form-group">
-            <label class="control-label col-md-4" for="new_password">New Password</label>
-            <div class="col-md-4">
-			<input class="form-control" id="new_password" name="new_password" type="password" value="">
-            </div>
-            <div class="col-md-4">
-            	<span class="modal-error profile-info" id="new_password" style="display:none"></span>
-            </div>
-        </div>
-		<div class="form-group">
-            <label class="control-label col-md-4" for="re_password">Repeat</label>
-            <div class="col-md-4">
-			<input class="form-control" id="re_password" name="re_password" type="password" value="">
-            </div>
-            <div class="col-md-4">
-            	<span class="modal-error profile-info" id="re_password" style="display:none"></span>
-            </div>
-        </div>
-		<div class="form-group">
-            <label class="control-label col-md-4" for="new_password">Description</label>
+            <label class="control-label col-md-4" for="description">Description</label>
             <div class="col-md-6">
 			<input class="form-control" id="description" name="description" type="text" value=<?php echo '"'.$description.'"'; ?>>
             </div>

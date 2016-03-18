@@ -271,51 +271,34 @@ class serverModel extends Model
 
 	 public function changeProfile()	
 	 {
-	//	  	$username = 'nobystander';
-	//    	$password = '123321gyh';
-	//    	$school='whut';
-	//    	$email=trim('i@gyh.me');
-    //    	$hashstr = sha1($username);
-		 
-	  	$username = $_POST['username'];
-      	$password = $_POST['password'];
-      	$email = trim($_POST['email']);
-      	$school = $_POST['school'];
-      	$hashstr = sha1($username);
+		 $username = $_POST['username'];
+		 $email = trim($_POST['email']);
+		 $school = $_POST['school'];
+		 $description = $_POST['description'];
 
-        if(!$this->standard->checkPassword($password))
-        {
-            $list = array('flag'=>'false','info'=>'密码格式错误');
-            echo json_encode($list);
-            return;
-        }  
+		 if(!$this->standard->checkEmail($email))
+		 {
+			 $list = array('flag'=>'false','info'=>'邮箱格式错误');
+			 echo json_encode($list);
+			 return;
+		 }
 
-        if(!$this->standard->checkEmail($email))
-        {
-            $list = array('flag'=>'false','info'=>'邮箱格式错误');
-            echo json_encode($list);
-            return;
-        }
+		 if(!$this->standard->checkSchool($school))
+		 {
+			 $list = array('flag'=>'false','info'=>'学校输入包含非法字符');
+			 echo json_encode($list);
+			 return;
+		 }  
 
-        if(!$this->standard->checkSchool($school))
-        {
-            $list = array('flag'=>'false','info'=>'学校输入包含非法字符');
-            echo json_encode($list);
-            return;
-        }  
-        
-        $username = $this->standard->filterText($username);
-        $school = $this->standard->filterText($username);
-        $email = $this->standard->filterText($email);
-        
-        $password = sha1($password);
+		 $username = $this->standard->filterText($username);
+		 $school = $this->standard->filterText($username);
+		 $email = $this->standard->filterText($email);
+		 $description = $this->standard->filterText($description);
 
-        $this->db->execute("UPDATE oj_user(password,email,school,hashstr) VALUES(:password,:email,:school,:hashstr) WHERE username=:username",
-                          array('password'=>$password,
-                          'email'=>$email,'school'=>$school,'hashstr'=>$hashstr,'username'=>$username));
-
-        $list = array('flag'=>'true');
-		echo json_encode($list);
+		 $this->db->execute("UPDATE oj_user(email,school,description) VALUES(:email,:school,:description) WHERE username=:username",
+			 array('email'=>$email,'school'=>$school,'description'=>$description,'username'=>$username));
+		 $list = array('flag'=>'true');
+		 echo json_encode($list);
 	 }
 }
 
