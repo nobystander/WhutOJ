@@ -30,6 +30,9 @@ $description
             <div class="col-md-4">
 			<input class="form-control" id="email" name="email" type="text" value=<?php echo '"',$email,'"'; ?>>
             </div>
+            <div class="col-md-4">
+            	<span class="modal-error profile-info" id="email" style="display:none"></span>
+            </div>
 		</div>
 		<div class="form-group">
             <label class="control-label col-md-4" for="description">Description</label>

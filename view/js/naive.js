@@ -1,5 +1,3 @@
-
-
 var convertDate = function (time) {
     var d = new Date(time * 1000);
     var dateStr = d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate()
@@ -12,7 +10,6 @@ var getNowTime = function () {
         var time = parseInt(json);
        // alert(convertDate(time));
     });
-    
 }
 
 
@@ -23,15 +20,24 @@ var trim = function (str) {
 /*................Check...................*/
 
 var checkUsername = function (str) { //检查用户名
-    return true;
+    return /^[A-z][\w]{7,15}$/.test(str);
 }
 
 var checkPassword = function (str) { //检测密码
-    return true;
+    return /[\w]{8,}$/.test(str);
 }
 var checkEmail = function (str) { //检查邮箱
-    return true;
+	return /(?!_)(?!.*?_$)[\w]+@[\w-]+\.[\w]+/.test(str);
 }
+
+var checkSchool = function (str) {//
+	return /[\w\u4e00-\u9fa5]{1,15}/.test(str);
+}	
+
+var checkDesc = function (str) {
+	return /[\w\s\u4e00-\u9fa5]+{0,100}/.test(str);
+}
+
 var checkText = function (str) { //检测文本
     return true;
 }
