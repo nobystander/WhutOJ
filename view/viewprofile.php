@@ -69,16 +69,17 @@ $description
 <script>
  var Data = [
 	 {
+		 label: "red",
 		 value: 30,
-		 color:"#F7464A"
+		 color:"#F7464A",	// red
 	 },
 	 {
 		 value : 50,
-		 color : "#46BFBD"
+		 color : "#46BFBD"	// green
 	 },
 	 {
-		 value : 100,
-		 color : "#FDB45C"
+		 value : 10,
+		 color : "#FDB45C"	//
 	 },
 	 {
 		 value : 40,

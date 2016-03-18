@@ -168,7 +168,7 @@ pre{
 /*..............VIEW-PROFILE..................*/
 
 #viewprofile li{
-	width: 60%;
+	width: 100%;
 	margin: 15px auto;
 	font-size: 19px;
 	word-wrap: break-word;
@@ -192,9 +192,11 @@ pre{
 }
 
 .problem-block a{
-	margin: 3px auto;
+	margin: 1px;
+	margin-top: 5px;
 	font-size: 14px; 
 }
+
 /*..............SHOW-CODE..................*/
 
 #showcode .codebox{
