@@ -1,0 +1,258 @@
+  PHP Warning:  socket_connect(): unable to connect [111]: Connection refused in /var/www/html/judge/socket.php on line 39
+  PHP Warning:  scandir(./data/1002/input): failed to open dir: No such file or directory in /var/www/html/judge/checkfile.php on line 15
+PHP Warning:  scandir(): (errno 2): No such file or directory in /var/www/html/judge/checkfile.php on line 15
+PHP Warning:  Invalid argument supplied for foreach() in /var/www/html/judge/checkfile.php on line 16
+PHP Warning:  scandir(./data/1002/output): failed to open dir: No such file or directory in /var/www/html/judge/checkfile.php on line 15
+PHP Warning:  scandir(): (errno 2): No such file or directory in /var/www/html/judge/checkfile.php on line 15
+PHP Warning:  Invalid argument supplied for foreach() in /var/www/html/judge/checkfile.php on line 16
+PHP Notice:  Undefined index: code in /var/www/html/judge/client.php on line 102
+File done
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 0 has invalid symbol index 11
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 1 has invalid symbol index 12
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 2 has invalid symbol index 2
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 3 has invalid symbol index 2
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 4 has invalid symbol index 11
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 5 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 6 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 7 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 8 has invalid symbol index 12
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 9 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 10 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 11 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 12 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 13 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 14 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 15 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 16 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 17 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 18 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 19 has invalid symbol index 21
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_line): relocation 0 has invalid symbol index 2
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o: In function `_start':
+(.text+0x20): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+PHP Fatal error:  Uncaught exception 'ErrorException' with message 'fwrite(): send of 12 bytes failed with errno=104 Connection reset by peer' in /var/www/html/judge/vendor/php-amqplib/php-amqplib/PhpAmqpLib/Wire/IO/StreamIO.php:271
+Stack trace:
+#0 [internal function]: PhpAmqpLib\Wire\IO\StreamIO->error_handler(8, 'fwrite(): send ...', '/var/www/html/j...', 271, Array)
+#1 /var/www/html/judge/vendor/php-amqplib/php-amqplib/PhpAmqpLib/Wire/IO/StreamIO.php(271): fwrite(Resource id #24, '??????????3?', 8192)
+#2 /var/www/html/judge/vendor/php-amqplib/php-amqplib/PhpAmqpLib/Connection/AbstractConnection.php(327): PhpAmqpLib\Wire\IO\StreamIO->write('??????????3?')
+#3 /var/www/html/judge/vendor/php-amqplib/php-amqplib/PhpAmqpLib/Connection/AbstractConnection.php(448): PhpAmqpLib\Connection\AbstractConnection->write('??????????3?')
+#4 /var/www/html/judge/vendor/php-amqplib/php-amqplib/PhpAmqpLib/Channel/AbstractChannel.php(226): PhpAmqpLib\Connection\AbstractConnection->send_channel_method_frame(0, Array, '')
+#5 /var/www/html/judge/ven in /var/www/html/judge/vendor/php-amqplib/php-amqplib/PhpAmqpLib/Wire/IO/StreamIO.php on line 271
+  PHP Warning:  socket_connect(): unable to connect [111]: Connection refused in /var/www/html/judge/socket.php on line 39
+PHP Warning:  socket_write(): unable to write to socket [32]: Broken pipe in /var/www/html/judge/socket.php on line 50
+PHP Warning:  socket_read(): unable to read from socket [107]: Transport endpoint is not connected in /var/www/html/judge/socket.php on line 51
+PHP Warning:  Invalid argument supplied for foreach() in /var/www/html/judge/client.php on line 59
+PHP Warning:  socket_write(): unable to write to socket [32]: Broken pipe in /var/www/html/judge/socket.php on line 50
+PHP Warning:  socket_read(): unable to read from socket [107]: Transport endpoint is not connected in /var/www/html/judge/socket.php on line 51
+PHP Warning:  socket_write(): unable to write to socket [32]: Broken pipe in /var/www/html/judge/socket.php on line 50
+PHP Warning:  socket_read(): unable to read from socket [107]: Transport endpoint is not connected in /var/www/html/judge/socket.php on line 51
+File done
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 0 has invalid symbol index 11
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 1 has invalid symbol index 12
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 2 has invalid symbol index 2
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 3 has invalid symbol index 2
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 4 has invalid symbol index 11
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 5 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 6 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 7 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 8 has invalid symbol index 12
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 9 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 10 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 11 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 12 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 13 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 14 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 15 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 16 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 17 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 18 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 19 has invalid symbol index 21
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_line): relocation 0 has invalid symbol index 2
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o: In function `_start':
+(.text+0x20): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+PHP Warning:  socket_write(): unable to write to socket [32]: Broken pipe in /var/www/html/judge/socket.php on line 50
+PHP Warning:  socket_read(): unable to read from socket [107]: Transport endpoint is not connected in /var/www/html/judge/socket.php on line 51
+PHP Warning:  socket_write(): unable to write to socket [32]: Broken pipe in /var/www/html/judge/socket.php on line 50
+PHP Warning:  socket_read(): unable to read from socket [107]: Transport endpoint is not connected in /var/www/html/judge/socket.php on line 51
+PHP Warning:  Invalid argument supplied for foreach() in /var/www/html/judge/client.php on line 59
+PHP Warning:  socket_write(): unable to write to socket [32]: Broken pipe in /var/www/html/judge/socket.php on line 50
+PHP Warning:  socket_read(): unable to read from socket [107]: Transport endpoint is not connected in /var/www/html/judge/socket.php on line 51
+PHP Warning:  socket_write(): unable to write to socket [32]: Broken pipe in /var/www/html/judge/socket.php on line 50
+PHP Warning:  socket_read(): unable to read from socket [107]: Transport endpoint is not connected in /var/www/html/judge/socket.php on line 51
+File done
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 0 has invalid symbol index 11
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 1 has invalid symbol index 12
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 2 has invalid symbol index 2
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 3 has invalid symbol index 2
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 4 has invalid symbol index 11
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 5 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 6 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 7 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 8 has invalid symbol index 12
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 9 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 10 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 11 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 12 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 13 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 14 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 15 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 16 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 17 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 18 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 19 has invalid symbol index 21
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_line): relocation 0 has invalid symbol index 2
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o: In function `_start':
+(.text+0x20): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+PHP Warning:  socket_write(): unable to write to socket [32]: Broken pipe in /var/www/html/judge/socket.php on line 50
+PHP Warning:  socket_read(): unable to read from socket [107]: Transport endpoint is not connected in /var/www/html/judge/socket.php on line 51
+  File done
+./code.cpp:1:0: warning: ignoring #pragma comment  [-Wunknown-pragmas]
+ #pragma comment(linker, "/STACK:1024000000,1024000000")
+ ^
+./code.cpp: In function ‘void dfs(int, int, int)’:
+./code.cpp:34:33: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for(int i = 0;i < G[u].size();++i)
+                                 ^
+./code.cpp: In function ‘int main()’:
+./code.cpp:48:22: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+     scanf("%d",&kase);
+                      ^
+./code.cpp:52:23: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+         scanf("%d",&n);
+                       ^
+./code.cpp:57:39: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+             scanf("%d %d %d",&a,&b,&w);
+                                       ^
+./code.cpp:66:23: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+         scanf("%d",&q);
+                       ^
+./code.cpp:70:27: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+             scanf("%d",&s);
+                           ^
+File done
+./code.cpp:1:0: warning: ignoring #pragma comment  [-Wunknown-pragmas]
+ #pragma comment(linker, "/STACK:1024000000,1024000000")
+ ^
+./code.cpp: In function ‘void dfs(int, int, int)’:
+./code.cpp:34:33: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for(int i = 0;i < G[u].size();++i)
+                                 ^
+./code.cpp: In function ‘int main()’:
+./code.cpp:48:22: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+     scanf("%d",&kase);
+                      ^
+./code.cpp:52:23: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+         scanf("%d",&n);
+                       ^
+./code.cpp:57:39: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+             scanf("%d %d %d",&a,&b,&w);
+                                       ^
+./code.cpp:66:23: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+         scanf("%d",&q);
+                       ^
+./code.cpp:70:27: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+             scanf("%d",&s);
+                           ^
+File done
+./code.cpp:1:0: warning: ignoring #pragma comment  [-Wunknown-pragmas]
+ #pragma comment(linker, "/STACK:1024000000,1024000000")
+ ^
+./code.cpp: In function ‘void dfs(int, int, int)’:
+./code.cpp:34:33: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for(int i = 0;i < G[u].size();++i)
+                                 ^
+./code.cpp: In function ‘int main()’:
+./code.cpp:48:22: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+     scanf("%d",&kase);
+                      ^
+./code.cpp:52:23: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+         scanf("%d",&n);
+                       ^
+./code.cpp:57:39: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+             scanf("%d %d %d",&a,&b,&w);
+                                       ^
+./code.cpp:66:23: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+         scanf("%d",&q);
+                       ^
+./code.cpp:70:27: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+             scanf("%d",&s);
+                           ^
+File done
+./code.cpp: In function ‘int main()’:
+./code.cpp:7:21: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+ scanf("%d %d",&a,&b);
+                     ^
+File done
+./code.cpp: In function ‘int main()’:
+./code.cpp:7:21: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+ scanf("%d %d",&a,&b);
+                     ^
+File done
+./code.cpp: In function ‘int main()’:
+./code.cpp:7:21: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+ scanf("%d %d",&a,&b);
+                     ^
+File done
+./code.cpp:1:0: warning: ignoring #pragma comment  [-Wunknown-pragmas]
+ #pragma comment(linker, "/STACK:1024000000,1024000000")
+ ^
+./code.cpp: In function ‘void dfs(int, int, int)’:
+./code.cpp:34:33: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for(int i = 0;i < G[u].size();++i)
+                                 ^
+./code.cpp: In function ‘int main()’:
+./code.cpp:48:22: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+     scanf("%d",&kase);
+                      ^
+./code.cpp:52:23: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+         scanf("%d",&n);
+                       ^
+./code.cpp:57:39: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+             scanf("%d %d %d",&a,&b,&w);
+                                       ^
+./code.cpp:66:23: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+         scanf("%d",&q);
+                       ^
+./code.cpp:70:27: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+             scanf("%d",&s);
+                           ^
+File done
+./code.cpp:1:0: warning: ignoring #pragma comment  [-Wunknown-pragmas]
+ #pragma comment(linker, "/STACK:1024000000,1024000000")
+ ^
+./code.cpp: In function ‘void dfs(int, int, int)’:
+./code.cpp:34:33: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for(int i = 0;i < G[u].size();++i)
+                                 ^
+./code.cpp: In function ‘int main()’:
+./code.cpp:48:22: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+     scanf("%d",&kase);
+                      ^
+./code.cpp:52:23: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+         scanf("%d",&n);
+                       ^
+./code.cpp:57:39: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+             scanf("%d %d %d",&a,&b,&w);
+                                       ^
+./code.cpp:66:23: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+         scanf("%d",&q);
+                       ^
+./code.cpp:70:27: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+             scanf("%d",&s);
+                           ^
+File done
+./code.cpp: In function ‘int main()’:
+./code.cpp:7:21: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+ scanf("%d %d",&a,&b);
+                     ^
+PHP Fatal error:  Uncaught exception 'ErrorException' with message 'fwrite(): send of 12 bytes failed with errno=104 Connection reset by peer' in /var/www/html/judge/vendor/php-amqplib/php-amqplib/PhpAmqpLib/Wire/IO/StreamIO.php:271
+Stack trace:
+#0 [internal function]: PhpAmqpLib\Wire\IO\StreamIO->error_handler(8, 'fwrite(): send ...', '/var/www/html/j...', 271, Array)
+#1 /var/www/html/judge/vendor/php-amqplib/php-amqplib/PhpAmqpLib/Wire/IO/StreamIO.php(271): fwrite(Resource id #24, '??????????3?', 8192)
+#2 /var/www/html/judge/vendor/php-amqplib/php-amqplib/PhpAmqpLib/Connection/AbstractConnection.php(327): PhpAmqpLib\Wire\IO\StreamIO->write('??????????3?')
+#3 /var/www/html/judge/vendor/php-amqplib/php-amqplib/PhpAmqpLib/Connection/AbstractConnection.php(448): PhpAmqpLib\Connection\AbstractConnection->write('??????????3?')
+#4 /var/www/html/judge/vendor/php-amqplib/php-amqplib/PhpAmqpLib/Channel/AbstractChannel.php(226): PhpAmqpLib\Connection\AbstractConnection->send_channel_method_frame(0, Array, '')
+#5 /var/www/html/judge/ven in /var/www/html/judge/vendor/php-amqplib/php-amqplib/PhpAmqpLib/Wire/IO/StreamIO.php on line 271

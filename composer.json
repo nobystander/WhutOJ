@@ -1,0 +1,10 @@
+{
+    "require": {
+        "respect/validation": "^1.0",
+        "php-amqplib/php-amqplib": "^2.6",
+        "workerman/workerman": "^3.3"
+		
+    }
+
+	
+}

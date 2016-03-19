@@ -1,0 +1,128 @@
+Workerman[server.php] start in DEBUG mode
+[1A
+[K-----------------------[47;30m WORKERMAN [0m-----------------------------
+[0mWorkerman version:3.3.0          PHP version:5.5.9-1ubuntu4.14
+------------------------[47;30m WORKERS [0m-------------------------------
+[47;30muser[0m          [47;30mworker[0m        [47;30mlisten[0m                [47;30mprocesses[0m [47;30mstatus[0m
+root          none          tcp://127.0.0.1:2333   1        [32;40m [OK] [0m
+----------------------------------------------------------------
+Press Ctrl-C to quit. Start success.
+New Connection
+Workerman[server.php] start in DEBUG mode
+PHP Warning:  stream_socket_server(): unable to connect to tcp://127.0.0.1:2333 (Address already in use) in /var/www/html/vendor/workerman/workerman/Worker.php on line 1398
+
+Warning: stream_socket_server(): unable to connect to tcp://127.0.0.1:2333 (Address already in use) in /var/www/html/vendor/workerman/workerman/Worker.php on line 1398
+PHP Fatal error:  Uncaught exception 'Exception' with message 'Address already in use' in /var/www/html/vendor/workerman/workerman/Worker.php:1401
+Stack trace:
+#0 /var/www/html/vendor/workerman/workerman/Worker.php(479): Workerman\Worker->listen()
+#1 /var/www/html/vendor/workerman/workerman/Worker.php(365): Workerman\Worker::initWorkers()
+#2 /var/www/html/judgeserver/server.php(214): Workerman\Worker::runAll()
+#3 {main}
+  thrown in /var/www/html/vendor/workerman/workerman/Worker.php on line 1401
+
+Fatal error: Uncaught exception 'Exception' with message 'Address already in use' in /var/www/html/vendor/workerman/workerman/Worker.php:1401
+Stack trace:
+#0 /var/www/html/vendor/workerman/workerman/Worker.php(479): Workerman\Worker->listen()
+#1 /var/www/html/vendor/workerman/workerman/Worker.php(365): Workerman\Worker::initWorkers()
+#2 /var/www/html/judgeserver/server.php(214): Workerman\Worker::runAll()
+#3 {main}
+  thrown in /var/www/html/vendor/workerman/workerman/Worker.php on line 1401
+Workerman[server.php] start in DEBUG mode
+PHP Warning:  stream_socket_server(): unable to connect to tcp://127.0.0.1:2333 (Address already in use) in /var/www/html/vendor/workerman/workerman/Worker.php on line 1398
+
+Warning: stream_socket_server(): unable to connect to tcp://127.0.0.1:2333 (Address already in use) in /var/www/html/vendor/workerman/workerman/Worker.php on line 1398
+PHP Fatal error:  Uncaught exception 'Exception' with message 'Address already in use' in /var/www/html/vendor/workerman/workerman/Worker.php:1401
+Stack trace:
+#0 /var/www/html/vendor/workerman/workerman/Worker.php(479): Workerman\Worker->listen()
+#1 /var/www/html/vendor/workerman/workerman/Worker.php(365): Workerman\Worker::initWorkers()
+#2 /var/www/html/judgeserver/server.php(214): Workerman\Worker::runAll()
+#3 {main}
+  thrown in /var/www/html/vendor/workerman/workerman/Worker.php on line 1401
+
+Fatal error: Uncaught exception 'Exception' with message 'Address already in use' in /var/www/html/vendor/workerman/workerman/Worker.php:1401
+Stack trace:
+#0 /var/www/html/vendor/workerman/workerman/Worker.php(479): Workerman\Worker->listen()
+#1 /var/www/html/vendor/workerman/workerman/Worker.php(365): Workerman\Worker::initWorkers()
+#2 /var/www/html/judgeserver/server.php(214): Workerman\Worker::runAll()
+#3 {main}
+  thrown in /var/www/html/vendor/workerman/workerman/Worker.php on line 1401
+PHP Warning:  file_get_contents(../problemdata/1002/input/input001): failed to open stream: No such file or directory in /var/www/html/judgeserver/server.php on line 102
+
+Warning: file_get_contents(../problemdata/1002/input/input001): failed to open stream: No such file or directory in /var/www/html/judgeserver/server.php on line 102
+PHP Warning:  file_get_contents(../problemdata/1002/input/input002): failed to open stream: No such file or directory in /var/www/html/judgeserver/server.php on line 102
+
+Warning: file_get_contents(../problemdata/1002/input/input002): failed to open stream: No such file or directory in /var/www/html/judgeserver/server.php on line 102
+PHP Warning:  file_get_contents(../problemdata/1002/output/output001): failed to open stream: No such file or directory in /var/www/html/judgeserver/server.php on line 102
+
+Warning: file_get_contents(../problemdata/1002/output/output001): failed to open stream: No such file or directory in /var/www/html/judgeserver/server.php on line 102
+PHP Warning:  file_get_contents(../problemdata/1002/output/output002): failed to open stream: No such file or directory in /var/www/html/judgeserver/server.php on line 102
+
+Warning: file_get_contents(../problemdata/1002/output/output002): failed to open stream: No such file or directory in /var/www/html/judgeserver/server.php on line 102
+Wrong socket
+2  0  0
+Connection closed
+Workerman[server.php] start in DEBUG mode
+PHP Warning:  stream_socket_server(): unable to connect to tcp://127.0.0.1:2333 (Address already in use) in /home/msi/workspace/html/vendor/workerman/workerman/Worker.php on line 1398
+
+Warning: stream_socket_server(): unable to connect to tcp://127.0.0.1:2333 (Address already in use) in /home/msi/workspace/html/vendor/workerman/workerman/Worker.php on line 1398
+PHP Fatal error:  Uncaught exception 'Exception' with message 'Address already in use' in /home/msi/workspace/html/vendor/workerman/workerman/Worker.php:1401
+Stack trace:
+#0 /home/msi/workspace/html/vendor/workerman/workerman/Worker.php(479): Workerman\Worker->listen()
+#1 /home/msi/workspace/html/vendor/workerman/workerman/Worker.php(365): Workerman\Worker::initWorkers()
+#2 /home/msi/workspace/html/judgeserver/server.php(220): Workerman\Worker::runAll()
+#3 {main}
+  thrown in /home/msi/workspace/html/vendor/workerman/workerman/Worker.php on line 1401
+
+Fatal error: Uncaught exception 'Exception' with message 'Address already in use' in /home/msi/workspace/html/vendor/workerman/workerman/Worker.php:1401
+Stack trace:
+#0 /home/msi/workspace/html/vendor/workerman/workerman/Worker.php(479): Workerman\Worker->listen()
+#1 /home/msi/workspace/html/vendor/workerman/workerman/Worker.php(365): Workerman\Worker::initWorkers()
+#2 /home/msi/workspace/html/judgeserver/server.php(220): Workerman\Worker::runAll()
+#3 {main}
+  thrown in /home/msi/workspace/html/vendor/workerman/workerman/Worker.php on line 1401
+Workerman[server.php] start in DEBUG mode
+[1A
+[K-----------------------[47;30m WORKERMAN [0m-----------------------------
+[0mWorkerman version:3.3.0          PHP version:5.5.9-1ubuntu4.14
+------------------------[47;30m WORKERS [0m-------------------------------
+[47;30muser[0m          [47;30mworker[0m        [47;30mlisten[0m                [47;30mprocesses[0m [47;30mstatus[0m
+root          none          tcp://127.0.0.1:2333   1        [32;40m [OK] [0m
+----------------------------------------------------------------
+Press Ctrl-C to quit. Start success.
+New Connection
+Connection closed
+New Connection
+3  1243  11424
+Connection closed
+New Connection
+    
+    
+Connection closed
+New Connection
+    
+Workerman[server.php] Stopping ...
+Workerman[server.php] has been stopped
+Workerman[server.php] start in DEBUG mode
+[1A
+[K-----------------------[47;30m WORKERMAN [0m-----------------------------
+[0mWorkerman version:3.3.0          PHP version:5.5.9-1ubuntu4.14
+------------------------[47;30m WORKERS [0m-------------------------------
+[47;30muser[0m          [47;30mworker[0m        [47;30mlisten[0m                [47;30mprocesses[0m [47;30mstatus[0m
+root          none          tcp://127.0.0.1:2333   1        [32;40m [OK] [0m
+----------------------------------------------------------------
+Press Ctrl-C to quit. Start success.
+New Connection
+3  1459  11424
+3  1413  11424
+Connection closed
+New Connection
+3  1471  11424
+3  1452  11424
+3  1591  11424
+5  0  180
+5  0  180
+3  0  180
+5  0  3572
+5  1396  11424
+3  0  180
+Connection closed
