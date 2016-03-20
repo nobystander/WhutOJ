@@ -16,7 +16,7 @@ var createRank = function() {
             if(arguments[0])
             {
                 tmp = arguments[0];
-                data = "username=" + arguments[0];
+                data = "username=" + encodeURIComponent(arguments[0]);
             }
 
             $.post("http://" + window.location.host + "/index.php?controller=server&action=getTotalUserNum",data, function(json)
@@ -98,7 +98,7 @@ var createRank = function() {
 
             if(arguments[0])
             {
-                data += "&username=" + arguments[0];
+                data += "&username=" + encodeURIComponent(arguments[0]);
             }
 
             $.post("http://" + window.location.host + "/index.php?controller=server&action=getRank",data, function(json)
@@ -132,9 +132,7 @@ var createRank = function() {
         {
 
             var a = $("#rank-list #username-search").val();
-            //var b = $("#rank-list #problem-search").val();
             a = trim(a);
-            //b = trim(b);
             if(a != '')
             {
                 this.startRankPage(a);
@@ -143,6 +141,20 @@ var createRank = function() {
             else
                 this.startRankPage();
         },
+        
+        UpdateRankSubmit : function () //搜缩框事件
+        {
+
+            var a = $("#rank-list #username-search").val();
+            a = trim(a);
+            if(a != '')
+            {
+                this.reloadRankTable(a);
+
+            }
+            else
+                this.reloadRankTable();
+        },
 
 
         changeRankPage : function (idx) //分页跳转
@@ -150,7 +162,7 @@ var createRank = function() {
 
             if(idx === rank_now_page) return;
             this.updateRankPageRank(idx);
-            this.reloadRankTable();
+            this.UpdateRankSubmit();
         },
         nextRankPage : function () //下一页
         { 
@@ -160,7 +172,7 @@ var createRank = function() {
             else    
                 idx = rank_now_page+1;
             this.updateRankPageRank(idx);
-            this.reloadRankTable();
+            this.UpdateRankSubmit();
         },
         prevRankPage : function () //上一页
         {
@@ -170,7 +182,7 @@ var createRank = function() {
             else   
                 idx = rank_now_page-1;
             this.updateRankPageRank(idx);
-            this.reloadRankTable();
+            this.UpdateRankSubmit();
         },
 
     };

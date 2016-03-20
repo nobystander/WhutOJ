@@ -19,11 +19,11 @@ var createStatus = function() {
                 var pattern = /^(.*)@(.*)$/;
                 var buf = pattern.exec(arguments[0]);
                 if(buf[1] && buf[2])
-                    data = "username=" + buf[1] + "&problem_id=" + buf[2];
+                    data = "username=" + encodeURIComponent(buf[1]) + "&problem_id=" + encodeURIComponent(buf[2]);
                 else if(buf[1])
-                    data = "username=" + buf[1];
+                    data = "username=" + encodeURIComponent(buf[1]);
                 else if(buf[2])
-                    data = "problem_id=" + buf[2];
+                    data = "problem_id=" + encodeURIComponent(buf[2]);
 
             }
             $.post("http://" + window.location.host + "/index.php?controller=server&action=getTotalSubmitNum",data, function(json)
@@ -108,10 +108,10 @@ var createStatus = function() {
                 var pattern = /^(.*)@(.*)$/;
                 var buf = pattern.exec(arguments[0]);   
                 if(buf[1])
-                    data += "&username=" + buf[1];
+                    data += "&username=" + encodeURIComponent(buf[1]);
 
                 if(buf[2])
-                    data += "&problem_id=" + buf[2];
+                    data += "&problem_id=" + encodeURIComponent(buf[2]);
 
             }
 

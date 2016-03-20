@@ -38,7 +38,7 @@ var createHeader = function(){
             $("#loginModal .login-info").hide();
 
 
-            var data = "username=" + username + "&password=" + password;
+            var data = "username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password);
             $.post("http://" + window.location.host + "/index.php?controller=server&action=logIn", data, function(json)         {
                var flag = json.flag;
                if(flag === 'false') {
@@ -96,8 +96,8 @@ var createHeader = function(){
             }
             $("#signupModal .signup-info").hide();
 
-            var data = "username=" + username + "&password=" + password + 
-                    "&email=" + email + "&school=" + school;
+            var data = "username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password) + 
+                    "&email=" + encodeURIComponent(email) + "&school=" + encodeURIComponent(school);
            
             $.post("http://" + window.location.host + "/index.php?controller=server&action=signUp", data, function(json) {
                var flag = json.flag;

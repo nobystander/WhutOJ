@@ -428,7 +428,6 @@ class serverModel extends Model
             return;
         }
         
-        $description = $this->standard->filterText($description);
         $school = $this->standard->filterText($school);
         $email = $this->standard->filterText($email);
         $user_id = intval($_SESSION['user_id']);

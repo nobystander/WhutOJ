@@ -59,7 +59,7 @@ var createProfile = function(){
                 $("#viewprofile .save").button('reset');
                 return;
             }
-            if(!checkText(school)) {
+            if(!checkSchool(school)) {
                 $("#viewprofile .save-info").text('学校输入包含非法字符');
                 $("#viewprofile .save-info").show();
                 $("#viewprofile .save").button('reset');
@@ -82,10 +82,10 @@ var createProfile = function(){
             $("#viewprofile .save-info").hide();
             
             
-            var data = "username=" + username + "&school=" + school + 
-                    "&email=" + email + "&description=" + description;
+            var data = "username=" + encodeURIComponent(username) + "&school=" + encodeURIComponent(school) + 
+                    "&email=" + encodeURIComponent(email) + "&description=" + encodeURIComponent(description);
             
-            
+           // alert(encodeURIComponent(description));
             $.post("http://" + window.location.host + "/index.php?controller=server&action=editProfile", data, function(json) {
                var flag = json.flag;
                // alert(flag);

@@ -8,7 +8,7 @@ $page_tile  页名
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" charset="utf-8" />
         <link type="text/css" rel="stylesheet" href="view/css/bootstrap.min.css<?php echo '?random='.rand() ?>" />
         <link type="text/css" rel="stylesheet" href="view/css/simple.css<?php echo '?random='.rand() ?>" />
         <?php

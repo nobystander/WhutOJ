@@ -15,7 +15,7 @@ var createProblemList = function () {
             var tmp = '';
             var that = this;
             if(arguments[0]) {
-                data = "addition=" + arguments[0];
+                data = "addition=" + encodeURIComponent(arguments[0]);
                 tmp = arguments[0];
             }
             $.post("http://" + window.location.host + "/index.php?controller=server&action=getTotalProblemNum",data, function(json) {
@@ -102,7 +102,7 @@ var createProblemList = function () {
             if(arguments[0]) {
 
                 var input = trim(arguments[0]);
-                data += "&addition=" + input;
+                data += "&addition=" + encodeURIComponent(input);
             }
 
             $.post("http://" + window.location.host + "/index.php?controller=server&action=getProblem",data, function(json) {

@@ -63,7 +63,7 @@ final class Mysql
         {
             $this->showError('数据库不可用:',$this->db_database);   
         }
-        
+    //    $this->execute('SET NAMES UTF8',array());
     }
     
     
@@ -88,7 +88,7 @@ final class Mysql
             }
             else
             {
-                $value = $this->filterText($value);
+           //     $value = $this->filterText($value);
                 $statement->bindValue($key,$value);
             }
         }
@@ -212,7 +212,7 @@ final class Mysql
 
             if($this->record_error)
             {
-                $time = data('Y-m-d H:i:s');
+                $time = date('Y-m-d H:i:s');
                 $message = $message . "\r\n$this->sql" . "\r\n客户IP: $ip" . "\r\n时间: $time" . "\r\n\r\n";
                 
                 $server_date = date("Y-m-d");

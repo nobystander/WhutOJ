@@ -6,14 +6,14 @@ var createSubmit = function() {
             
             var pid = $("#pid").val();
             var language = $("#language").val();
-            var sourcecode = encodeURIComponent($("#sourcecode").val());
+            var sourcecode = $("#sourcecode").val();
            
             if(sourcecode.length === 0){
                alert('Source Code Cound not be empty!');     
                return;
             }
            
-            var data = "problem_id=" + pid + "&language=" + language + "&sourcecode=" + sourcecode;
+            var data = "problem_id=" + encodeURIComponent(pid) + "&language=" + encodeURIComponent(language) + "&sourcecode=" + encodeURIComponent(sourcecode);
             
             $.post("http://" + window.location.host + "/index.php?controller=server&action=submit",data,function(json){
                 
