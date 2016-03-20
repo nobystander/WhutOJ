@@ -92,14 +92,16 @@ final class Worker
            // print_r($need);
             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             // 由于socket发送大文件问题，这里暂时直接读取
+            $connection = ssh2_connect($this->_config['ssh']['ssh_host'], 22);
+            ssh2_auth_password($connection, $this->_config['ssh']['ssh_user'],$this->_config['ssh']['ssh_password']);
             foreach($need as $kind=>$arr)
                 foreach($arr as $value)
                 {
-                    $file_path = '../problemdata/' .$problem_id . '/' . $kind .'/'. $kind . $value;
-                    $t = file_get_contents($file_path);
-                    $file_path = $data_dir .'/'. $kind . '/' .$kind.$value;
-                    file_put_contents($file_path,$t);
+                    $server_path = $this->_config['ssh']['ssh_server_problemdata_dir'] .'/' .$problem_id . '/' . $kind .'/'. $kind . $value;
+                    $client_path = $data_dir .'/'. $kind . '/' .$kind.$value;
+                    ssh2_scp_recv($connection, $server_path ,$client_path);
                 }
+            unset($connection);
         }
     }
     
@@ -110,11 +112,17 @@ final class Worker
         {
             mkdir($code_dir);
         }
-        $code = $this->sender->sendAndReceive(array('type'=>'getcode','run_id'=>$run_id));
+        //$code = $this->sender->sendAndReceive(array('type'=>'getcode','run_id'=>$run_id));
         
-        $code_suffix = '';
-        $code_path = $this->_config['common']['code_path'] . '/' .$run_id . '/' . $this->_config['language_filename'][$language];
-        file_put_contents($code_path,$code['code']);
+        $connection = ssh2_connect($this->_config['ssh']['ssh_host'], 22);
+        ssh2_auth_password($connection, $this->_config['ssh']['ssh_user'],$this->_config['ssh']['ssh_password']);
+        
+        $server_path = $this->_config['ssh']['ssh_server_submitdata_dir'] .'/' .$run_id . '/code';
+        $client_path = $this->_config['common']['code_path'] . '/' .$run_id . '/' . $this->_config['language_filename'][$language];
+        ssh2_scp_recv($connection, $server_path ,$client_path);
+        
+        unset($connection);
+        //file_put_contents($code_path,$code['code']);
 
     }
     

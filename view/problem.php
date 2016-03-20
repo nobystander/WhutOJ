@@ -24,9 +24,9 @@ $source
             <span>Memory Limit: <span class="badge"><?php echo $memory_limit; ?></span>&thinsp;KB</span>
         </div>
         <div class="btn-group problem-bar">
-            <button type="button" class="btn btn-default">Status</button>
-            <button type="button" class="btn btn-default">Statistics</button>
-            <button type="button" class="btn btn-default">Discuss</button>
+            <button type="button" class="btn btn-default"><a href="/index.php?controller=status">Status</a></button>
+            <button type="button" class="btn btn-default"><a href="#">Statistics</a></button>
+            <button type="button" class="btn btn-default"><a href="#">Discuss</a></button>
         <?php
             if(isset($_SESSION['user_id']))
                 echo '<a href="/index.php?controller=submit&problem_id='. $problem_id .'"><button type="button" class="btn btn-primary">Submit</button></a>';
@@ -90,9 +90,9 @@ $source
             ?>
         </div>
         <div class="btn-group problem-bar">
-            <button type="button" class="btn btn-default">Status</button>
-            <button type="button" class="btn btn-default">Statistics</button>
-            <button type="button" class="btn btn-default">Discuss</button>
+            <button type="button" class="btn btn-default"><a href="/index.php?controller=status">Status</a></button>
+            <button type="button" class="btn btn-default"><a href="#">Statistics</a></button>
+            <button type="button" class="btn btn-default"><a href="#">Discuss</a></button>
             <?php
             if(isset($_SESSION['user_id']))
                 echo '<a href="/index.php?controller=submit&problem_id='. $problem_id .'"><button type="button" class="btn btn-primary">Submit</button></a>';

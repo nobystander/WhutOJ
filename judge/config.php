@@ -47,4 +47,13 @@ $CONFIG['socket'] = array(
 
 );
 
+$CONFIG['ssh']  = array(
+    'ssh_host'      =>  'localhost',
+    'ssh_user'      =>  'msi',
+    'ssh_password'  =>  'msi', 
+    'ssh_server_problemdata_dir'    =>  '/var/www/html/problemdata',
+    'ssh_server_submitdata_dir'     =>  '/var/www/html/submitdata'
+
+);
+
 ?>
