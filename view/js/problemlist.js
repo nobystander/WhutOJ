@@ -131,11 +131,23 @@ var createProblemList = function () {
             var input = $("#problem-list .navbar-form input").val();
             this.startProblemListPage(input);
         },
+        
+        updateProblemListSubmit : function () //搜缩框分页更新
+        {
+
+            var input = $("#problem-list .navbar-form input").val();
+            if(input != '')
+                this.reloadProblemListTable(input);
+            else
+                this.reloadProblemListTable();
+        },
+
+        
 
         changeProblemListPage : function (idx) {  //分页跳转
             if(idx === problemlist_now_page) return;
             this.updateProblemListPageStatus(idx);
-            this.reloadProblemListTable();
+            this.updateProblemListSubmit();
         },
         nextProblemListPage : function () { //下一页
             
@@ -145,7 +157,7 @@ var createProblemList = function () {
             else    
                 idx = problemlist_now_page+1;
             this.updateProblemListPageStatus(idx);
-            this.reloadProblemListTable();
+            this.updateProblemListSubmit();
             
             
         },
@@ -158,7 +170,7 @@ var createProblemList = function () {
                 idx = problemlist_now_page-1;
             
             this.updateProblemListPageStatus(idx);
-            this.reloadProblemListTable();
+            this.updateProblemListSubmit();
         },
         
 

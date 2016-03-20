@@ -172,6 +172,22 @@ var createStatus = function() {
             else
                 this.startStatusPage();
         },
+        
+        updateStatusSubmit : function () //搜缩框分页更新
+        {
+
+            var a = $("#status-list #username-search").val();
+            var b = $("#status-list #problem-search").val();
+            a = trim(a);
+            b = trim(b);
+            if(a != '' || b != '')
+            {
+                this.reloadStatusTable(a+'@'+b);
+
+            }
+            else
+                this.reloadStatusTable();
+        },
 
 
         changeStatusPage : function (idx) //分页跳转
@@ -179,7 +195,7 @@ var createStatus = function() {
 
             if(idx === status_now_page) return;
             this.updateStatusPageStatus(idx);
-            this.reloadStatusTable();
+            this.updateStatusSubmit();
         },
         nextStatusPage : function () //下一页
         { 
@@ -189,7 +205,7 @@ var createStatus = function() {
             else    
                 idx = status_now_page+1;
             this.updateStatusPageStatus(idx);
-            this.reloadStatusTable();
+            this.updateStatusSubmit();
         },
         prevStatusPage : function () //上一页
         {
@@ -199,7 +215,7 @@ var createStatus = function() {
             else   
                 idx = status_now_page-1;
             this.updateStatusPageStatus(idx);
-            this.reloadStatusTable();
+            this.updateStatusSubmit();
         },
 
     };
