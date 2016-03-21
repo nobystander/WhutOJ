@@ -1,4 +1,4 @@
-#include<cstdio>
+#include "/dev/random"
 using namespace std;
 
 int main()

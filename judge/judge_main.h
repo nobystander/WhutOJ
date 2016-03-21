@@ -31,6 +31,7 @@
 
 #include "syscall_checker.h"
 #include "language.h"
+#include "config.h"
 
 #include<iostream>
 #include<fstream>
@@ -39,11 +40,13 @@ using namespace std;
 #define MB (1048576)
 
 //CONFIG
-#define JUDGE_USER_NAME "msi"
-#define DATA_DIR "/var/www/html/judge/data"
-#define RUN_DIR "/var/www/html/judge/run"
+
+#define DATA_DIR "./data"
+#define RUN_DIR "./run"
 
 
+#define RUN_ERROR_NAME "run_error"
+#define RUN_LOG_NAME "run_log"
 
 enum judge_status {
     JUDGE_SE = -1,
@@ -59,19 +62,6 @@ enum judge_status {
     JUDGE_PE = 9,     // Presentation Error
 };
 
-//enum language_type {
-//    LANG_C,
-//    LANG_CPP,
-//    LANG_JAVA
-//};
-//
-//
-//const char language_suffix[][10] = {
-//    "c",
-//    "cpp",
-//    "java"
-//};
-
 
 char input_dir[PATH_MAX]; //输入文件dir  /data/problem_id/input/
 char output_dir[PATH_MAX]; //           /data/problem_id/input/
@@ -81,7 +71,9 @@ char code_dir[PATH_MAX];        //run/run_id/
 char code_path[PATH_MAX]; //带测code
 char code_exec[PATH_MAX];
 char code_output_path[PATH_MAX];
-char code_error_path[PATH_MAX];
+
+
+
 
 long run_id;
 long problem_id;
@@ -93,6 +85,6 @@ uid_t parent_uid,child_uid;
 gid_t parent_gid,child_gid;
 pid_t child_pid;
 
-
+FILE* run_log_fp;
 
 #endif

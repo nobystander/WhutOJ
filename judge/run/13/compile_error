@@ -1,0 +1,48 @@
+code.cpp: In function ‘int main()’:
+code.cpp:7:21: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+ scanf("%d %d",&a,&b);
+                     ^
+/usr/bin/ld: cannot open output file code: Permission denied
+collect2: error: ld returned 1 exit status
+code.cpp: In function ‘int main()’:
+code.cpp:7:21: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+ scanf("%d %d",&a,&b);
+                     ^
+/usr/bin/ld: cannot open output file code: Permission denied
+collect2: error: ld returned 1 exit status
+code.cpp: In function ‘int main()’:
+code.cpp:7:21: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+ scanf("%d %d",&a,&b);
+                     ^
+/usr/bin/ld: cannot open output file code: Permission denied
+collect2: error: ld returned 1 exit status
+code.cpp: In function ‘int main()’:
+code.cpp:7:21: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+ scanf("%d %d",&a,&b);
+                     ^
+/usr/bin/ld: cannot open output file code: Permission denied
+collect2: error: ld returned 1 exit status
+code.cpp: In function ‘int main()’:
+code.cpp:7:21: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+ scanf("%d %d",&a,&b);
+                     ^
+/usr/bin/ld: cannot open output file code: Permission denied
+collect2: error: ld returned 1 exit status
+code.cpp: In function ‘int main()’:
+code.cpp:7:21: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+ scanf("%d %d",&a,&b);
+                     ^
+/usr/bin/ld: cannot open output file code: Permission denied
+collect2: error: ld returned 1 exit status
+code.cpp: In function ‘int main()’:
+code.cpp:7:21: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+ scanf("%d %d",&a,&b);
+                     ^
+/usr/bin/ld: cannot open output file code: Permission denied
+collect2: error: ld returned 1 exit status
+code.cpp: In function ‘int main()’:
+code.cpp:7:21: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+ scanf("%d %d",&a,&b);
+                     ^
+/usr/bin/ld: cannot open output file code: Permission denied
+collect2: error: ld returned 1 exit status

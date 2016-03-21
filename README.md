@@ -3,6 +3,5 @@ ubuntu 14.04
 LAMP
 G++,GCC,java
 rabbitmq
-Workerman
-
+php ssh2
 

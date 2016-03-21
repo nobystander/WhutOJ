@@ -136,19 +136,17 @@ final class Worker
         $this->ensureData($problem_id);
         $this->ensureCode($run_id,$language);
         $this->sender->sendAndReceive(array('type'=>'init','run_id'=>$run_id));
-        echo "File done\n";                                                                        
+        echo "$run_id File done\n";                                                                        
         
         
         $judge_status = $this->_config['judge_status']['JUDGE_RJ'];
         $used_time = 0;
         $used_memory = 0;
         $result = exec("./compile " . $this->_config['common']['code_path'] .'/'.$run_id . '  ' .$language);
-        if($result == 'NO')
-        {
-            $judge_status = $this->_config['judge_status']['JUDGE_CE'];
-        }
-        else
-        {
+
+	echo "$run_id Compile done\n";   
+	if($result == 'YES')
+	{
             $t = exec('./judge_main '.$run_id .' '.$problem_id.' '.$language.' '.$time_limit.
                      ' '.$memory_limit);
             $t_arr = array();
@@ -156,6 +154,10 @@ final class Worker
             $judge_status = $t_arr[1];
             $used_time = $t_arr[2];
             $used_memory = $t_arr[3];
+        }
+	else
+        {
+            $judge_status = $this->_config['judge_status']['JUDGE_CE'];
         }
         
         

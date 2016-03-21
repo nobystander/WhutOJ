@@ -1,9 +1,8 @@
 #include "judge_main.h"
 
-void error_report(const char s[])
+void report_log(const char s[])
 {
-    fprintf(stderr,"%s",s);
-    exit(1);
+    fprintf(run_log_fp,"%s\n",s);
 }
 
 
@@ -13,7 +12,8 @@ void system_chmod(char path[],const char a[])
     sprintf(buf,"chmod %s %s",a,path);
     if(system(buf) != 0)
     {
-        error_report("copy file error");
+        report_log("ERROR : chmod failed");
+        exit(1);
     }
 }
 
@@ -23,7 +23,8 @@ void check_file(char path[])
 {
     if(access(path,F_OK) != 0)
     {
-        error_report("argv file dont exist");
+        report_log("ERROR : lack data file");
+        exit(1);
     }
     if(access(path,R_OK) != 0)
         system_chmod(path,"+r");
@@ -43,7 +44,10 @@ void reopen(int fileno,const char* path,int oflag,mode_t mode)
 {
     int tmp_fileno = open(path,oflag,mode);
     if(tmp_fileno == -1)
-        error_report("open");
+    {
+        report_log("ERROR : open failed");
+        exit(1);
+    }
 
     dup2(tmp_fileno,fileno);
     close(tmp_fileno);
@@ -58,7 +62,7 @@ void exec(long used_time)
     reopen(STDIN_FILENO, input_path, O_RDONLY, 0);
 
     reopen(STDOUT_FILENO, code_output_path, O_WRONLY | O_CREAT  | O_TRUNC, S_IRWXU | S_IRGRP | S_IROTH);
-    reopen(STDERR_FILENO, code_error_path,  O_WRONLY | O_CREAT | O_APPEND, S_IRWXU | S_IRGRP | S_IROTH);
+    reopen(STDERR_FILENO, RUN_ERROR_NAME,  O_WRONLY | O_CREAT | O_APPEND, S_IRWXU | S_IRGRP | S_IROTH);
 
 
     struct rlimit LIM;
@@ -67,7 +71,10 @@ void exec(long used_time)
     LIM.rlim_cur = time_limit - used_time/1000;
     LIM.rlim_max = LIM.rlim_cur + 1;
     if(setrlimit(RLIMIT_CPU,&LIM) < 0)
-        error_report("setrlimit [CPU]");
+    {
+        report_log("ERROR : setrlimit CPU");
+        exit(1);
+    }
 
     alarm(0); //取消之间，防止sleep恶意运行
     alarm(LIM.rlim_cur * 10);
@@ -77,7 +84,10 @@ void exec(long used_time)
     LIM.rlim_cur = 32 * MB;
     LIM.rlim_max = LIM.rlim_cur + MB;
     if(setrlimit(RLIMIT_FSIZE,&LIM) < 0)
-        error_report("setrlimit [FSIZE]");
+    {
+        report_log("ERROR : setrlimit FSIZE");
+        exit(1);
+    }
 
 
 //    //进程限制
@@ -100,17 +110,25 @@ void exec(long used_time)
     //堆栈限制
     LIM.rlim_max = LIM.rlim_cur = 64 * MB;
     if(setrlimit(RLIMIT_STACK,&LIM) < 0)
-        error_report("setrlimit [STACK]");
+    {
+        report_log("ERROR : setrlimit STACK");
+        exit(1);
+    }
 
 
     if(ptrace(PTRACE_TRACEME, 0, NULL, NULL) < 0)
-        error_report("Error ptrace");
+    {
+        report_log("ERROR : ptrace failed");
+        exit(1);
+    }
 
-    chdir(code_dir);
+    report_log("Now start run");
+
 //    if(chroot(code_dir) != 0)
 //        error_report("Error chroot");
     setuid(child_uid);
     setgid(child_gid);
+
 
     switch (language)
     {
@@ -132,7 +150,9 @@ void exec(long used_time)
                 //perror(strerror(errno));
             break;
         default:
-            error_report("Unknown language");
+            report_log("ERROR : unknown language");
+            exit(1);
+
     }
 
 }
@@ -221,14 +241,17 @@ void watch(pid_t pid,enum judge_status &judge_status,long &max_used_memory,long 
 
     init_syscall_limit();
 
-    int status;
+    int status = 0;
     struct rusage ru;
 
     while(1)
     {
         pid_t pid_ret = wait4(pid,&status,0,&ru);
         if(pid_ret != pid)
-            error_report("wait4");
+        {
+            report_log("ERROR : wait4 failed");
+            exit(1);
+        }
 
         //TLE
         used_time = init_used_time + ru.ru_utime.tv_sec * 1000 + ru.ru_utime.tv_usec / 1000;
@@ -255,14 +278,14 @@ void watch(pid_t pid,enum judge_status &judge_status,long &max_used_memory,long 
             max_used_memory = used_memory;
         if(max_used_memory > memory_limit)
         {
-            printf("*** %ld  %ld  %ld   %ld\n",used_memory,memory_limit,ru.ru_minflt,ru.ru_maxrss);
+          //  printf("*** %ld  %ld  %ld   %ld\n",used_memory,memory_limit,ru.ru_minflt,ru.ru_maxrss);
             judge_status = JUDGE_MLE;
             goto send_kill;
         }
 
 
       //  RE 判断stderr
-        if(get_file_size(code_error_path) > error_size)
+        if(get_file_size(RUN_ERROR_NAME) > error_size)
         {
             judge_status = JUDGE_RE;
             goto send_kill;
@@ -393,116 +416,48 @@ void watch(pid_t pid,enum judge_status &judge_status,long &max_used_memory,long 
 
 
 
-//inline void trim(string &str)
-//{
-//    while(str.length() && ( *(str.end()-1) == ' ' || *(str.end()-1) == '\n'))
-//        str.erase(str.end()-1);
-//}
-//
-//enum judge_status check_user_output()
-//{
-//    struct stat st,ss;
-//    string strt;
-//    string strs;
-//    stat(code_output_path,&st);
-//    stat(output_path,&ss);
-//
-//    if(st.st_size < ss.st_size / 2 || st.st_size > ss.st_size * 2) return JUDGE_WA; //accelerate
-//    bool flag = false;
-//    ifstream fint(code_output_path), fins(output_path);
-//
-//
-//    while(fint.good() || fins.good())
-//    {
-//        if(fint.good())
-//            getline(fint,strt);
-//        else strt = "";
-//
-//        if(fins.good())
-//            getline(fins,strs);
-//        else strs = "";
-//
-//        if(!fint.good() && !fins.good()) break;
-//      //  printf("%sxxx\n",strt.c_str());
-//        //printf("%sxxx\n",strs.c_str());
-//
-//        //if(!strt.compare(strs))
-//        if(strcmp(strt.c_str(),strs.c_str()) != 0)
-//        {
-//        cout << strt << "xxx" << endl;//fint.good()  << endl;
-//            cout << strs << "xxx" << endl;//fins.good()  << endl;
-//
-//            trim(strt);
-//            trim(strs);
-//
-//            if(strcmp(strt.c_str(),strs.c_str()) == 0)
-//            {
-//                flag = true;
-//            }
-//            else
-//                return JUDGE_WA;
-//        }
-//    }
-//    if(flag)
-//        return JUDGE_PE;
-//    return JUDGE_AC;
-//}
-
-
-enum judge_status find_next_nonspace(int &c1, int &c2, FILE * &f1, FILE * &f2)
+inline void trim(string &str)
 {
-    c1 = fgetc(f1), c2 = fgetc(f2);
-    while ((isspace(c1)) || (isspace(c2))) {
-        if (c1 != c2) {
-            if (c2 == EOF) {
-                do {
-                    c1 = fgetc(f1);
-                } while (isspace(c1));
-                break;
-            } else if (c1 == EOF) {
-                do {
-                    c2 = fgetc(f2);
-                } while (isspace(c2));
-                break;
-            } else if ((c1 == '\r' && c2 == '\n')) {
-                c1 = fgetc(f1);
-            } else if ((c2 == '\r' && c1 == '\n')) {
-                c2 = fgetc(f2);
-            } else {
-                return JUDGE_PE;
-            }
-        }
-        if (isspace(c1)) c1 = fgetc(f1);
-        if (isspace(c2)) c2 = fgetc(f2);
-    }
-    return JUDGE_RJ;
+    while(str.length() && ( *(str.end()-1) == ' ' || *(str.end()-1) == '\n'))
+        str.erase(str.end()-1);
 }
 
-// 检查用户输出
 enum judge_status check_user_output()
 {
+    struct stat st,ss;
+    string strt,strs;
+    stat(code_output_path,&st);
+    stat(output_path,&ss);
 
-    FILE *f1, *f2;
-    f1 = fopen(code_output_path, "r");
-    f2 = fopen(output_path, "r");
-    if (!f1 || !f2) {
-        perror("fopen");
-        exit(1);
+    if(st.st_size < ss.st_size / 2 || st.st_size > ss.st_size * 2) return JUDGE_WA; //accelerate
+    bool flag = false;
+    ifstream fint(code_output_path,ifstream::in), fins(output_path,ifstream::in);
+
+
+    while(fint.good() || fins.good())
+    {
+        if(fint.good())
+            getline(fint,strt);
+        else strt = "";
+
+        if(fins.good())
+            getline(fins,strs);
+        else strs = "";
+
+        if(strt != strs)
+        {
+            cout << code_output_path << "\n" << input_path << endl;
+            trim(strt);
+            trim(strs);
+            if(strt == strs)
+                flag = true;
+            else
+                return JUDGE_WA;
+        }
     }
-
-    enum judge_status ret = JUDGE_RJ;
-
-    int c1, c2;
-    do {
-        ret = find_next_nonspace(c1, c2, f1, f2);
-        if (ret != JUDGE_RJ || (c1 == EOF && c2 == EOF)) break;
-        if (c1 != c2) ret = JUDGE_WA;
-    } while (ret == JUDGE_RJ);
-
-    fclose(f1);
-    fclose(f2);
-
-    return ret;
+    if(flag)
+        return JUDGE_PE;
+    return JUDGE_AC;
 }
 
 //void compile()
@@ -527,21 +482,36 @@ enum judge_status check_user_output()
 
 void init()
 {
-    sprintf(input_dir,"%s/%ld/input",DATA_DIR,problem_id);
-    sprintf(output_dir,"%s/%ld/output",DATA_DIR,problem_id);
-
     sprintf(code_dir,"%s/%ld",RUN_DIR,run_id);
-    sprintf(code_path,"%s/%ld/%s",RUN_DIR,run_id,language_filename[language]);
-    sprintf(code_error_path,"%s/%ld/error",RUN_DIR,run_id);
-    //compile();
-    sprintf(code_exec,"%s/%ld/%s",RUN_DIR,run_id,language_execname[language]);
+    if(chdir(code_dir) != 0)
+    {
+        fprintf(stderr,"INIT ERROR : can not enter this dir\n");
+
+        exit(1);
+    }
+
+    if((run_log_fp = fopen(RUN_LOG_NAME,"w+")) == NULL)
+    {
+        fprintf(stderr,"INIT ERROR : Open run_log failed\n");
+        exit(1);
+    }
+
+    sprintf(input_dir,"../../%s/%ld/input",DATA_DIR,problem_id);
+    sprintf(output_dir,"../../%s/%ld/output",DATA_DIR,problem_id);
+   // sprintf(code_path,"%s/%ld/%s",RUN_DIR,run_id,language_filename[language]);
+  //  sprintf(code_exec,"%s/%ld/%s",RUN_DIR,run_id,language_execname[language]);
+    sprintf(code_path,"%s",language_filename[language]);
+    sprintf(code_exec,"%s",language_execname[language]);
+
     struct passwd * child_user = getpwnam(JUDGE_USER_NAME);
     if(child_user == NULL)
-        error_report("Can't find this user");
+    {
+        report_log("ERROR : Can't find this user");
+        exit(1);
+    }
     child_uid = child_user->pw_uid;
     child_gid = child_user->pw_gid;
 
-    system_chmod(code_dir,"777");
     system_chmod(code_exec,"777");
     system_chmod(code_path,"666");
 //    open(code_error_path,O_CREAT,S_IRUSR);
@@ -562,7 +532,7 @@ int prepare(char *file_name)
 
     sprintf(input_path,"%s/input%03d",input_dir,id);
     sprintf(output_path,"%s/output%03d",output_dir,id);
-    sprintf(code_output_path,"%s/code_output%03d",code_dir,id);
+    sprintf(code_output_path,"code_output%03d",id);
 
     check_file(input_path);
     check_file(output_path);
@@ -584,11 +554,14 @@ int main(int argc,char *argv[])
 
     if(argc != 6)
     {
-        error_report(" param: [run_id] [problem_id] [language] [time_limit] [memory_limit] ");
+        fprintf(stderr,"INIT ERROR : param: [run_id] [problem_id] [language] [time_limit] [memory_limit]\n");
+        exit(1);
     }
+
     if(parent_uid != 0)
     {
-        error_report("Error: judger should be run as root.");
+        fprintf(stderr,"INIT ERROR : judger should be run as root.\n");
+        exit(1);
     }
 
     run_id = atoi(argv[1]);
@@ -603,7 +576,8 @@ int main(int argc,char *argv[])
     struct dirent *dirp;
     if((dp = opendir(input_dir)) == NULL)
     {
-        error_report("Can't open input dir");
+        report_log("ERROR : Can't open input dir");
+        exit(1);
     }
 
     enum judge_status judge_status = JUDGE_RJ;
@@ -617,7 +591,7 @@ int main(int argc,char *argv[])
     {
 
         if(!prepare(dirp->d_name)) continue;
-        error_size = get_file_size(code_error_path);
+        error_size = get_file_size(RUN_ERROR_NAME);
 
         child_pid = fork();
 
@@ -644,7 +618,8 @@ int main(int argc,char *argv[])
     if(judge_status == JUDGE_RJ)
         judge_status = JUDGE_AC;
     printf("%d  %ld  %ld\n",judge_status,used_time,max_used_memory >> 10);// ms kB
-
+    report_log("judge ended");
+    fclose(run_log_fp);
     return 0;
 }
 

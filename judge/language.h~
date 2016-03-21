@@ -1,7 +1,7 @@
 #ifndef LANGUAGE_H
 #define LANGUAGE_H
 
-
+#define COMPILE_TIME (1)
 
 
 enum language_type {
@@ -11,12 +11,14 @@ enum language_type {
 };
 
 const char language_filename[][20] = {
+    "",
     "code.c",
-    "code.cpp",
+    "./code.cpp",
     "Main.java"
 };
 
 const char language_execname[][20] = {
+    "",
     "code",
     "code",
     "Main.class"
