@@ -28,7 +28,8 @@ $CONFIG['system']['route'] = array(
 $CONFIG['system']['common'] = array(
     'secret_key'    =>  sha1('singledog'),
     'problemdata_dir'   => './problemdata',
-    'submit_dir'  =>  './submitdata'
+    'submit_dir'  =>  './submitdata',
+    'runlog_dir'    =>  './runlog'
 );
 
 $CONFIG['system']['cache'] = array(

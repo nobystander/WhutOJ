@@ -39,7 +39,7 @@ class showcodeModel extends Model
     
     public function getSubmitCompileError($run_id)
     {
-        $log_dir = RUN_LOG_PATH .'/'. $run_id .'/compile_error';
+        $log_dir = $this->config('common')['runlog_dir'] .'/'. $run_id .'/compile_error';
         $t = @file_get_contents($log_dir);
         if(!$t)
             $t = 'Unknown Error';

@@ -16,8 +16,6 @@ define('MODEL_PATH',ROOT_PATH.'/model');
 define('VIEW_PATH',ROOT_PATH.'/view');
 define('LOG_PATH',ROOT_PATH.'/error');
 define('PROBLEM_PATH',ROOT_PATH.'/problem');
-define('RUN_LOG_PATH',ROOT_PATH.'/runlog');
-
 
 final class Application
 {

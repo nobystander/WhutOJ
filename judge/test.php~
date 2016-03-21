@@ -1,7 +1,0 @@
-<?php
-
-	$result = passthru('./compile ./run/18 2');
-
-	echo "$result   end";
-
-?>
