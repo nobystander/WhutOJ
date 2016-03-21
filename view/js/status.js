@@ -135,7 +135,12 @@ var createStatus = function() {
                     tmp.children("td.username").children("a").text(json[i].username);
                     tmp.children("td.username").children("a").attr("href",hosts+"controller=viewprofile&username="+json[i].username );
 
-                    tmp.children("td.result").text(json[i].result);
+                    if(json[i].result == 'Compile Error')
+                    {
+                        tmp.children("td.result").html('<a href="' + hosts+"controller=showcode&run_id="+json[i].run_id +'">'+json[i].result +'</a>')
+                    }
+                    else
+                        tmp.children("td.result").text(json[i].result);
                     tmp.children("td.language").text(json[i].language);
 
                     if(json[i].result === 'Accepted')
