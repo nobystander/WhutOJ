@@ -27,6 +27,25 @@ class showcodeModel extends Model
         else return '';
     }
     
+    public function getSubmitResult($run_id)
+    {   
+        $sql = "SELECT result FROM oj_submit WHERE run_id=:run_id";
+        $data = $this->db->query($sql,array('run_id'=>$run_id));
+        
+        if(isset($data[0]['result']))
+            return $data[0]['result'];
+        else return '';
+    }
+    
+    public function getSubmitCompileError($run_id)
+    {
+        $log_dir = RUN_LOG_PATH .'/'. $run_id .'/compile_error';
+        $t = @file_get_contents($log_dir);
+        if(!$t)
+            $t = 'Unknown Error';
+        return $t;
+    }
+    
     public function getLanguageName($id)
     {   
         $sql = "SELECT language FROM oj_language WHERE language_id=:language_id";

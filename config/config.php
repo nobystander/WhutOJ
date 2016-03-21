@@ -57,6 +57,7 @@ $CONFIG['judge']['server'] = array(
     'listen_port'   => 2333,
     'problemdata_dir'   => '../problemdata',
     'code_dir'  =>  '../submitdata',
+    'log_dir'   =>  '../runlog',
     'secret_key'    =>  sha1('singledog')
 ) 
 

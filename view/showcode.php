@@ -2,6 +2,9 @@
 $page_title
 $language
 $code
+
+$compile_error;
+
 -->
 <?php
     require_once('./view/template/header.php');
@@ -9,15 +12,29 @@ $code
 
 <div class="wrapper" id="showcode">
 	<div class="container">
-	<div class="codebox">
-	<pre>
-	<?php 
-        echo '<code class="language-'.$language.'">'
-    ?>
-<?php echo $code; ?>
-	</code>
-	</pre>
-	</div>
+        <?php
+        if($compile_error)
+        {
+            echo '<div class="panel panel-danger compile-info">';
+            echo '  <div class="panel-heading">';
+            echo '      <h3 class="panel-title">Compile Info</h3>';
+            echo '</div>';
+            echo '  <div class="panel-body">';
+            echo       $compile_error;
+            echo '  </div>';
+            echo '</div>';
+        }
+        ?>
+        <div class="codebox">
+            <pre>
+            <?php 
+                echo '<code class="language-'.$language.'">'
+            ?>
+        <?php echo $code; ?>
+            </code>
+            </pre>
+        </div>
+        
 	</div>
 </div>
 

@@ -160,10 +160,16 @@ final class Worker
             $judge_status = $this->_config['judge_status']['JUDGE_CE'];
         }
         
+        $log = array();
+        $log['compile_error'] = @file_get_contents($this->_config['common']['code_path'] .'/'.$run_id.'/compile_error');
+        $log['compile_log'] = @file_get_contents($this->_config['common']['code_path'] .'/'.$run_id.'/compile_log');
+        $log['run_error'] = @file_get_contents($this->_config['common']['code_path'] .'/'.$run_id.'/run_error');
+        $log['run_log'] = @file_get_contents($this->_config['common']['code_path'] .'/'.$run_id.'/run_log');
+        
         
     
         $this->sender->sendAndReceive(array('type'=>'return','run_id'=>$run_id,'judge_status'=>$judge_status,
-                                           'used_time'=>$used_time,'used_memory'=>$used_memory));
+                    'used_time'=>$used_time,'used_memory'=>$used_memory,'log'=>$log));
         
     }
     

@@ -165,7 +165,16 @@
                 $judge_status = $arr['judge_status'];
                 $used_time = $arr['used_time'];
                 $used_memory = $arr['used_memory'];
+                $log = (array)$arr['log'];
                 echo $judge_status . '  ' . $used_time . '  ' . $used_memory ."\n";
+                
+                
+                mkdir($server_config['log_dir'] .'/'.$run_id);
+                foreach($log as $key=>$value)
+                {
+                    $log_dir = $server_config['log_dir'] .'/'.$run_id.'/'.$key;
+                    file_put_contents($log_dir,$value);
+                }
                 
                 $post_data = array(  
                     'run_id' => $run_id,  

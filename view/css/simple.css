@@ -170,10 +170,15 @@ pre{
 
 #showcode .codebox{
 	width: 90%;
-	margin: 5px auto;
+	margin: 0px auto;
     height: auto;
 }
 
+#showcode .compile-info{
+	width: 90%;
+	margin: 20px auto;
+    height: auto;
+}
 
 /*..............VIEW-PROFILE..................*/
 
