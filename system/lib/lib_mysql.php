@@ -149,6 +149,11 @@ final class Mysql
     }
     
     
+    public function getLastId()
+    {
+        return intval($this->dbc->lastInsertId());
+    }
+    
     /**
      * 获取用户IP
      */

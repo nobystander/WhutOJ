@@ -49,7 +49,7 @@ class serverController extends Controller
             return $list;
         }
     
-        private function ConvertParam($arr)
+        private function convertParam($arr)
         {
             if(isset($arr['username']))
             {
@@ -90,7 +90,7 @@ class serverController extends Controller
         {
             $arr = array('username','problem_id');
             $arr = $this->checkRealParam($arr);
-            $arr = $this->ConvertParam($arr);
+            $arr = $this->convertParam($arr);
             echo $this->M->getTotalSubmitNum($arr);
         }
     
@@ -126,7 +126,7 @@ class serverController extends Controller
             $num = intval($_POST['num']);
             $arr = array('username','problem_id');
             $arr = $this->checkRealParam($arr);
-            $arr = $this->ConvertParam($arr);
+            $arr = $this->convertParam($arr);
         
             $this->M->getSubmit($skip,$num,$arr);
             
@@ -168,7 +168,7 @@ class serverController extends Controller
             $arr = array('language','problem_id','sourcecode');
             $arr = $this->checkRealParam($arr);
             $arr['user_id'] = $_SESSION['user_id'];
-            $arr = $this->ConvertParam($arr); 
+            $arr = $this->convertParam($arr); 
             if(!$arr['language_id'])
             {
                  echo json_encode(array('flag'=>false));
@@ -186,7 +186,7 @@ class serverController extends Controller
         {
             $arr = array('run_id','judge_status','used_time','used_memory','secret_key');
             $arr = $this->checkRealParam($arr);
-            $arr = $this->ConvertParam($arr);
+            $arr = $this->convertParam($arr);
             if(!$this->M->judgeReturnCheck($arr))
                 exit("No access to this function");
             

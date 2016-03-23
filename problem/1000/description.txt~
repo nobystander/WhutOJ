@@ -1,3 +1,0 @@
-CRB has two strings s and t.
-In each step, CRB can select arbitrary character c of s and insert any character d (d ≠ c) just after it.
-CRB wants to convert s to t. But is it possible?

@@ -86,8 +86,8 @@ pre{
 
 .wait-info{
     display: none;
-    position: absolute;
-    top: 220px;
+    position: fixed;
+    top: 40%;
     width: 100%;
     height: 80px;
     z-index: 10;
@@ -155,7 +155,7 @@ pre{
 	margin: 0 auto 18px;
 }
 
-/*.................STATUS.................*/
+/*.................RANK.................*/
 #rank-list .submit-search{
     margin-top: 20px;
 }
@@ -217,6 +217,29 @@ pre{
 	font-size: 14px; 
 }
 
+
+/*...............BACKEND.............................*/
+#backend #view-problem .row{
+    margin-top: 30px;
+}
+
+#backend #view-problem.row .navbar-form{
+    margin: 20px 0px; 
+    padding:0;
+}
+#backend #view-problem .row nav{
+    float:right; 
+    padding:0px 20px;
+}
+
+
+#backend #view-status .submit-search{
+    margin-top: 20px;
+}
+
+#backend #view-status .separate-page{
+    float: right;
+}
 
 /*..............FOOTER..................*/
 .footer{

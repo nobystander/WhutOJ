@@ -125,19 +125,19 @@ class serverModel extends Model
     {
         $result = 0;
         if($addition == '')
-            $result = $this->db->getNum('SELECT count(*) AS cnt FROM oj_problem',array());
+            $result = $this->db->getNum('SELECT count(*) AS cnt FROM oj_problem WHERE visible=1',array());
         else
         {
             if(is_numeric($addition))
             {
-                $result = $this->db->getNum("SELECT count(*) AS cnt FROM oj_problem WHERE problem_id=:problem_id OR title like :liketitle OR source like :likesource",
+                $result = $this->db->getNum("SELECT count(*) AS cnt FROM oj_problem WHERE problem_id=:problem_id OR title like :liketitle OR source like :likesource AND visible=1",
                     array('problem_id'=>$addition,'liketitle'=>'%'.$addition.'%',
                          'likesource'=>'%'.$addition.'%'));
                 
             }
             else
             {
-                $result = $this->db->getNum("SELECT count(*) AS cnt FROM oj_problem WHERE title like :liketitle OR source like :likesource",
+                $result = $this->db->getNum("SELECT count(*) AS cnt FROM oj_problem WHERE title like :liketitle OR source like :likesource AND visible=1",
                     array('liketitle'=>'%'.$addition.'%',
                          'likesource'=>'%'.$addition.'%'));
             }
@@ -174,20 +174,20 @@ class serverModel extends Model
     public function getProblem($skip,$num,$addition='')
     {
         if($addition == '')
-            $data = $this->db->query("SELECT * FROM oj_problem LIMIT :skip,:num",
+            $data = $this->db->query("SELECT * FROM oj_problem WHERE visible=1 LIMIT :skip,:num",
                                 array('skip'=>$skip,'num'=>$num));
         else
         {
             if(is_numeric($addition))
             {
-                $data = $this->db->query("SELECT * FROM oj_problem WHERE problem_id=:problem_id OR title like :liketitle OR source like :likesource LIMIT :skip,:num",
+                $data = $this->db->query("SELECT * FROM oj_problem WHERE problem_id=:problem_id OR title like :liketitle OR source like :likesource AND visible=1 LIMIT :skip,:num",
                     array('problem_id'=>$addition,'liketitle'=>'%'.$addition.'%',
                          'likesource'=>'%'.$addition.'%','skip'=>$skip,'num'=>$num));
             }
             else
             {
             
-                $data = $this->db->query("SELECT * FROM oj_problem WHERE title like :liketitle OR source like :likesource LIMIT :skip,:num",
+                $data = $this->db->query("SELECT * FROM oj_problem WHERE title like :liketitle OR source like :likesource AND visible=1 LIMIT :skip,:num",
                     array('liketitle'=>'%'.$addition.'%',
                          'likesource'=>'%'.$addition.'%','skip'=>$skip,'num'=>$num));
             
@@ -272,7 +272,7 @@ class serverModel extends Model
         }
         
     }
-    
+    //HERE CAN USE LAST_INSERT_ID
     public function submit($arr)
     {
         
@@ -282,7 +282,7 @@ class serverModel extends Model
         $arr['length'] = intval(strlen($sourcecode));
         $arr['submit_time'] = time();
         $this->db->execute($sql,$arr);
-        $run_id = $this->db->getNum("SELECT count(*) AS cnt FROM oj_submit",array());
+        $run_id = $this->db->getLastId();//getNum("SELECT count(*) AS cnt FROM oj_submit",array());
         $submit_dir = $this->config('common')['submit_dir'] . '/'. $run_id;
         mkdir($submit_dir);
         file_put_contents($submit_dir.'/code',$sourcecode);

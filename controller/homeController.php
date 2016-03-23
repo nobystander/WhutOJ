@@ -18,13 +18,6 @@ class homeController extends Controller
             $this->showTemplate('footer',array());
         }
 
-        public function hello()
-        {
-            $t = array('sd'=>'asd');
-            $f = array();
-            array_push($f,$t);
-            echo $f[0]['sd'];
-        }
     
 }
 

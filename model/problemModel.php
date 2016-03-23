@@ -12,9 +12,10 @@ class problemModel extends Model
     {
         $path = PROBLEM_PATH . '/' . $problem_id . '/'.$file .'.txt';
         
-        $myfile = fopen($path,'rb') or die('打开文件'. $path .'失败');
-        $data = fread($myfile,filesize($path));
-        fclose($myfile);
+//        $myfile = fopen($path,'rb') or die('打开文件'. $path .'失败');
+//        $data = fread($myfile,filesize($path));
+//        fclose($myfile);
+        $data = @file_get_contents($path);
         return $data;
     }
     

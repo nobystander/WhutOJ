@@ -1,5 +1,0 @@
-There are multiple test cases. The first line of input contains an integer T, indicating the number of test cases. For each test case there are two strings s and t, one per line.
-1 ≤ T ≤ 10^5
-1 ≤ |s| ≤ |t| ≤ 10^5
-All strings consist only of lowercase English letters.
-The size of each input file will be less than 5MB.

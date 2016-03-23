@@ -154,9 +154,11 @@ class Controller
         $str = '';
         for($i = 0;$i < count($arr);$i++)
         {
+            
             $str .= '<script type="text/javascript" src="view/js/'. $arr[$i] . '.js?random='.rand() . '"></script>';
             if($i)
-                $str .= '\n';
+                $str .= " \n ";
+            
         }
         return $str;
     }
@@ -167,9 +169,11 @@ class Controller
         $str = '';
         for($i = 0;$i < count($arr);$i++)
         {
+            
             $str .= '<link type="text/css" rel="stylesheet" href="view/css/'. $arr[$i] . '.css?random='.rand() . '"/>';
             if($i)
-                $str .= '\n';
+                $str .= " \n ";
+            
         }
         return $str;
     }
