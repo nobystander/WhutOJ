@@ -64,6 +64,21 @@ class problemModel extends Model
         $data = $this->db->query('SELECT * FROM oj_problem WHERE problem_id=:problem_id', array('problem_id'=>$problem_id));
         return $data[0]['title'];
     }
+    
+    public function checkProblemId($problem_id)
+    {
+        $sql = "SELECT * FROM oj_problem WHERE problem_id=:problem_id AND visible=1";
+        $data = $this->db->query($sql,array('problem_id'=>$problem_id));
+        if(!count($data))
+        {
+            echo '<div class="row">';
+            echo '<div class="alert alert-danger" style="text-align:center" role="alert">';
+            echo 'Wrong Param';
+            echo '</div>';
+            exit();
+        }
+        
+    }
 }
 
 ?>

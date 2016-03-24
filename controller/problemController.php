@@ -13,7 +13,7 @@ class problemController extends Controller
     {
         $this->checkParam($arr,array('problem_id'=>1));
         $problem_id = intval($arr['problem_id']);
-        
+        $this->M->checkProblemId($problem_id);
         $data['page_title'] = 'Problem'.$problem_id;
         $data['problem_id'] = $problem_id;
         $data['title'] = $this->load('standard')->encodehtml($this->M->getTitle($problem_id));
@@ -26,6 +26,7 @@ class problemController extends Controller
         $data['sample_output'] = $this->load('standard')->encodehtml($this->M->getSampleOutput($problem_id));
         $data['hint'] = $this->load('standard')->encodehtml($this->M->getHint($problem_id));
         $data['source'] = $this->load('standard')->encodehtml($this->M->getSource($problem_id));
+        $data['enable_mathjax'] = 1;
         $this->showTemplate('problem',$data);
     }
     
