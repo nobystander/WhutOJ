@@ -14,7 +14,7 @@ var add0 = function(m){
 
 var convertDate = function (time) {
     var d = new Date(time * 1000);
-    var dateStr = d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate()
+    var dateStr = d.getFullYear() + '-' + add0(d.getMonth()+1) + '-' + add0(d.getDate())
         + ' ' + add0(d.getHours()) + ':' + add0(d.getMinutes()) + ':' + add0(d.getSeconds());
     return dateStr;
 }

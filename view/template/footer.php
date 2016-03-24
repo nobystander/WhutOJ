@@ -20,7 +20,7 @@
         <script type="text/javascript" src="view/js/header.js<?php echo '?random='.rand() ?>"></script>
   
         <?php
-            if($enable_mathjax == 1)
+            if(isset($enable_mathjax))
             {
                 echo '<script type="text/javascript" src="view/js/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>';
             }

@@ -19,6 +19,16 @@ final class Standard
     private $setMaxUserName = 16;
     private $setMinPassword = 8;
     
+    public function __construct()
+    {
+        date_default_timezone_set('PRC');
+    }
+    
+    public function convertDate($time)
+    {
+        return date("Y-m-d H:i:s",$time);
+    }
+    
     public function checkUsername($str)
     {
         $usernameValidator = v::alnum()->noWhitespace()->length($this->setMinUserName, $this->setMaxUserName);

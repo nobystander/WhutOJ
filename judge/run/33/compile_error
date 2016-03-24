@@ -1,0 +1,14 @@
+code.cpp:1:0: warning: ignoring #pragma comment  [-Wunknown-pragmas]
+ #pragma comment(linker, "/STACK:1024000000,1024000000")
+ ^
+code.cpp: In function ‘void dfs(int, int, int)’:
+code.cpp:34:33: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for(int i = 0;i < G[u].size();++i)
+                                 ^
+code.cpp: In function ‘int main()’:
+code.cpp:54:9: warning: unused variable ‘kase’ [-Wunused-variable]
+     int kase;
+         ^
+code.cpp:57:21: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+ scanf("%d %d",&a,&b);
+                     ^
