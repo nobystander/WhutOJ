@@ -10,12 +10,11 @@ class homeController extends Controller
         public function index($arr) 
         {
             
+            $data = array();
+            $data['page_title'] = 'Index';
+            $data['css'] = $this->convertCss(array('animate','home'));
+            $this->showTemplate('home',$data);
             
-            $data['page_title'] = 'index';
-            $data['user_name'] = 'asd';
-            
-            $this->showTemplate('header',$data);
-            $this->showTemplate('footer',array());
         }
 
     

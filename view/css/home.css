@@ -1,0 +1,55 @@
+.carousel,.item,.active{
+    height:100%;
+}
+.carousel-inner{
+    height:100%;
+}
+
+.header{
+    background-color: transparent;
+}
+
+.footer{
+    display: none;
+}
+.carousel-caption{
+    top:10%;
+}
+
+
+.carousel-inner .first-carousel-caption{
+    animation-name: bounceInUp 1.5s;
+    -moz-animation:bounceInUp 1.5s; /* Firefox */
+    -webkit-animation:bounceInUp 1.5s; /* Safari and Chrome */
+    -o-animation:bounceInUp 1.5s; /* Opera */
+}
+
+.carousel-inner .first-section-text{
+    margin-top: 15%;
+}
+
+.carousel-inner .first-section-text h1{
+    font-size: 60px;
+}
+
+.carousel-inner .first-section-text p{
+    font-size: 40px;
+}
+
+.navbar{
+    border: 0;
+}
+
+.navbar-default .navbar-brand{
+    color: white;
+    font-size: 30px;
+} 
+
+.navbar-default .navbar-nav>li>a{
+    color: white;
+    font-size: 16px;
+}
+
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+    color: red;
+}

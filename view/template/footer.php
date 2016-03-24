@@ -6,9 +6,7 @@
 
         <footer class="footer">
             <div class="footer-info">
-                Developer: Wumpus
-            </div>
-            <div class="copyright">
+                Developer: Wumpus<br />
                 Copyright © 2015 WhutOJ. All Rights Reserved.
             </div>
         </footer>

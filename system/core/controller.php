@@ -88,6 +88,10 @@ class Controller
         }
     }
     
+    
+   
+    
+    
     /**
      * 检查route传入controller的参数
      * @access      final   protected

@@ -169,8 +169,7 @@
             </div>
             
             <div role="tabpanel" class="tab-pane fade" id="view-problem">
-                <br />
-               
+                
                 <div class="row">
                     <div class="col-md-4" >
                         <form action="javascript:void(0)"  class="navbar-form" role="search">

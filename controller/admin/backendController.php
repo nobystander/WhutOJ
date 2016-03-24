@@ -58,6 +58,7 @@ class backendController extends Controller
     
         public function index($arr) 
         {
+            $this->checkAdminLogin();
             $data['page_title'] = 'Backend';
             $data['script'] = $this->convertScript(array('jquery.validate.min','backend'));
             $this->showTemplate('backend',$data);
@@ -69,6 +70,7 @@ class backendController extends Controller
     
         public function addProblem()
         {
+            $this->checkAdminLogin();
             if(empty($_FILES['data']) || $_FILES['data']['type'] != 'application/x-tar')
             {
                 $list = array();
@@ -93,6 +95,7 @@ class backendController extends Controller
     
         public function editProblem()
         {
+            $this->checkAdminLogin();
             if( is_uploaded_file($_FILES['data']['tmp_name']) && $_FILES['data']['type'] != 'application/x-tar')
             {
                 $list = array();
@@ -119,6 +122,7 @@ class backendController extends Controller
     
         public function loadProblem()
         {
+            $this->checkAdminLogin();
             $this->checkParam($_POST,array('problem_id'=>1));
             
             $arr = $this->checkRealParam(array('problem_id'));
@@ -141,6 +145,7 @@ class backendController extends Controller
     
         public function getTotalProblemNum()
         {
+            $this->checkAdminLogin();
             if(!isset($_POST['addition']))
                 echo $this->M->getTotalProblemNum();
             else
@@ -149,6 +154,7 @@ class backendController extends Controller
     
         public function getProblem()
         {
+            $this->checkAdminLogin();
             $this->checkParam($_POST,array('skip'=>1,'num'=>1));
             $skip = intval($_POST['skip']);
             $num = intval($_POST['num']);
@@ -163,6 +169,7 @@ class backendController extends Controller
         
         public function changeProblemVisible()
         {
+            $this->checkAdminLogin();
             $this->checkParam($_POST,array('problem_id'=>1,'visible'=>1));
             $arr = $this->checkRealParam(array('problem_id','visible'));
             $arr = $this->convertParam($arr);
@@ -175,12 +182,37 @@ class backendController extends Controller
 //        $list['flag'] = true;
 //        echo json_encode($list);
 //        return;
-            
+            $this->checkAdminLogin();
             $this->checkParam($_POST,array('run_id'=>1));
             $arr = $this->checkRealParam(array('run_id'));
             $arr = $this->convertParam($arr);
             $this->M->getRunLog($arr);
         }
+    
+    
+     final protected function checkAdminLogin()
+    {
+        $flag = true;
+        if(!isset($_SESSION['user_id']))
+            $flag = false;
+        
+        if($flag)
+        {
+            $user_id = intval($_SESSION['user_id']);
+            if(!$this->M->checkAdminLogin(array('user_id'=>$user_id)))
+                $flag = false;
+        }
+            
+        if(!$flag)
+        {
+            echo '<div class="row">';
+            echo '<div class="alert alert-danger" style="text-align:center" role="alert">';
+            echo 'Do not have access to access this page';
+            echo '</div>';
+            exit();
+        }
+        
+    }
     
 }
 

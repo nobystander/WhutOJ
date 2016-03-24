@@ -1,8 +1,9 @@
 html{
+    height: 100%;
 }
 
 body{
-    margin-top: 50px;
+    height: 100%;
 }
 
 pre{
@@ -12,7 +13,12 @@ pre{
     background: none;
 }
 
-
+.wrapper{
+    padding-top: 50px;
+    width: 100%;
+    min-height: 100%;
+    margin-bottom: -100px;
+}
 
 /*........HEADER..................*/
 
@@ -29,40 +35,51 @@ pre{
     padding: 10px 10px 10px 10px;
     border-radius: 5px;
     color: #CE6D6D;
+}
 
+
+
+/*..............FOOTER..................*/
+.footer{
+    width: 100%;
+    height: 100px;
+    text-align: center;
+}
+
+.footer .footer-info{
+    position: relative;
+    top:40px;
 }
 
 
 /*............PROBLEM................*/
-.wrapper{
-    width: 100%;
-}
-.wrapper #problem-container{
+
+#problem-container{
     text-align: center;
 }
-.wrapper #problem-container .badge{
+#problem-container .badge{
     vertical-align: top;
 }
 
-.wrapper #problem-container .limit{
+#problem-container .limit{
     width: 100%;
     padding: 20px 0px;
     background-color: #F8F8F8;
     border-radius: 5px;
 }
 
-.wrapper #problem-container .problem-bar{
+#problem-container .problem-bar{
     padding-top: 20px;
 }
 
-.wrapper #problem-container .problem-bar button{
+#problem-container .problem-bar button{
     width: 80px;
 }
-.wrapper #problem-container .problem-tag{
+#problem-container .problem-tag{
     padding-top:20px;
     text-align: left;
 }
-.wrapper #problem-container .problem-content{
+#problem-container .problem-content{
     text-align: left;
     background-color: #F8F8F8;
     border-radius: 5px;
@@ -241,13 +258,3 @@ pre{
     float: right;
 }
 
-/*..............FOOTER..................*/
-.footer{
-    width: 100%;
-    height: 100px;
-    text-align: center;
-}
-
-.footer .footer-info{
-    margin-top: 20px;
-}
