@@ -5,7 +5,7 @@ var createRank = function() {
     var rank_now_page = 1;
     var rank_item_per_page = 20;
     var rank_total_page;
-    /*................STATUSLIST...................*/
+    /*................RANK...................*/
 
     return {
         startRankPage : function () //JS刷新Rank页面，包括table和分页

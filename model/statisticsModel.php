@@ -24,7 +24,7 @@ class statisticsModel extends Model
     
     public function getProblemRank($problem_id)
     {
-        $sql = "SELECT B.username,A.submit_time,MIN(A.time) AS time,A.memory FROM oj_submit AS A LEFT JOIN oj_user AS B ON(A.user_id = B.user_id) WHERE problem_id=:problem_id  AND A.result=3  GROUP BY A.user_id";
+        $sql = "SELECT B.username,A.submit_time,MIN(A.time) AS time,A.memory FROM oj_submit AS A LEFT JOIN oj_user AS B ON(A.user_id = B.user_id) WHERE problem_id=:problem_id  AND A.result=3  GROUP BY A.user_id LIMIT 0,20";
         $data = $this->db->query($sql,array('problem_id'=>$problem_id));
         for($i = 0;$i < count($data);$i++)
         {
@@ -33,6 +33,13 @@ class statisticsModel extends Model
             
         }
         return $data;
+    }
+    
+    public function getProblemSubmitResultNum($problem_id,$result)
+    {
+        $sql = "SELECT count(run_id) AS cnt FROM oj_submit WHERE problem_id=:problem_id AND result=:result";
+        return $this->db->getNum($sql,array('problem_id'=>$problem_id,'result'=>$result));
+    
     }
     
     

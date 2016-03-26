@@ -9,7 +9,6 @@ class backendModel extends Model
 
     public function checkProblemId($arr)
     {
-        $this->checkAdminLogin();
         $sql = "SELECT * FROM oj_problem WHERE problem_id=:problem_id";
         $data = $this->db->query($sql,$arr);
         return count($data);
@@ -17,7 +16,6 @@ class backendModel extends Model
     
     public function loadProblem($arr)
     {
-        $this->checkAdminLogin();
         $sql = "SELECT title,source,time_limit,memory_limit,visible FROM oj_problem WHERE problem_id=:problem_id";
         $data = $this->db->query($sql,$arr);
         $data = $data[0];
@@ -42,16 +40,20 @@ class backendModel extends Model
     
     public function addProblem($arr)
     {
-        $this->checkAdminLogin();
         $sql = "INSERT INTO oj_problem(title,source,add_time,time_limit,memory_limit,visible) VALUES(:title,:source,NOW(),:time_limit,:memory_limit,:visible)";
         $this->db->execute($sql,$arr); 
         $problem_id = $this->db->getLastId();
+        $sql = "CREATE TABLE IF NOT EXISTS oj_discuss_:problem_id (content VARCHAR(50) NOT NULL , user_id INT NOT NULL, time INT NOT NULL,father INT NOT NULL,deep INT NOT NULL)";
+        $this->db->execute($sql,array('problem_id'=>$problem_id));
+        $sql = "ALTER TABLE oj_discuss_:problem_id  ADD discuss_id INT NOT NULL AUTO_INCREMENT FIRST,ADD PRIMARY KEY (discuss_id)";
+        $this->db->execute($sql,array('problem_id'=>$problem_id));
+        
+        
         return $problem_id;
     }
     
     public function editProblem($arr)
     {
-        $this->checkAdminLogin();
         $sql = "UPDATE oj_problem SET title=:title,source=:source,time_limit=:time_limit,memory_limit=:memory_limit,visible=:visible WHERE problem_id=:problem_id";
         $this->db->execute($sql,$arr);
     }
@@ -59,7 +61,6 @@ class backendModel extends Model
     public function moveProblemData($problem_id,$content,$data)
     {
         
-        $this->checkAdminLogin();
         
         $content_dir = PROBLEM_PATH . '/' . $problem_id;
         if(file_exists($content_dir))
@@ -129,7 +130,6 @@ class backendModel extends Model
     
     public function getTotalProblemNum($addition='')
     {
-        $this->checkAdminLogin();
         $result = 0;
         if($addition == '')
             $result = $this->db->getNum('SELECT count(*) AS cnt FROM oj_problem ',array());
@@ -156,7 +156,6 @@ class backendModel extends Model
     
     public function getProblem($skip,$num,$addition='')
     {
-        $this->checkAdminLogin();
         if($addition == '')
             $data = $this->db->query("SELECT * FROM oj_problem  LIMIT :skip,:num",
                                 array('skip'=>$skip,'num'=>$num));
@@ -183,7 +182,6 @@ class backendModel extends Model
     
     public function changeProblemVisible($arr)
     {
-        $this->checkAdminLogin();
         $sql = "UPDATE oj_problem SET visible=:visible WHERE problem_id=:problem_id";
         $this->db->execute($sql,$arr);
         $list = array();
@@ -193,7 +191,6 @@ class backendModel extends Model
     
     public function getRunLog($arr)
     {
-        $this->checkAdminLogin();
         $run_id = $arr['run_id'];
         $log_dir = $this->config('common')['runlog_dir'] . '/' . $run_id;
         $data = array();

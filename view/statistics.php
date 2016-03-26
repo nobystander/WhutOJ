@@ -8,12 +8,12 @@ $page_title
 
 
 <div class="wrapper">
-    <div class="container" id="statistics-container">
+    <div class="container" id="statistics">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-8 problem-rank">
                 <h2>Top20 Submit</h2>
                  <div class="table-responsive" style="clear:both">
-                    <table class="rank-table table table-striped table-hover">
+                    <table class="table table-striped table-hover">
                         <thead>
                             <tr>
                                 <th width="5%">Order</th>
@@ -48,9 +48,21 @@ $page_title
                 <div class="center-block div-canvas">
                     <canvas id="canvas"></canvas>
                 </div>
+                
+                <div class="data">
+                    <h3>Total Count</h3>
+                    <ul>
+                        <li id="CE_num">CE: <span><?php echo $CE_num ?></span></li>
+                        <li id="AC_num">AC: <span><?php echo $AC_num ?></span></li>
+                        <li id="RE_num">RE: <span><?php echo $RE_num ?></span></li>
+                        <li id="WA_num">WA: <span><?php echo $WA_num ?></span></li>
+                        <li id="Other_num"sss>Other: <span><?php echo $Other_num ?></span></li>
+                    </ul>
+                </div>
             </div>
         
         </div>
+        
     </div>
 </div>
 

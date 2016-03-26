@@ -123,4 +123,33 @@ var getProfile = decorateProfile();
 
 $(document).ready(function(){
     getProfile().init(); 
+     var Data = [
+         {
+             label: "CE",
+             value: parseInt($("#viewprofile .data #CE_num").text()),
+             color:"#F7464A"
+         },
+         {
+             label: "AC",
+             value : parseInt($("#viewprofile .data #AC_num").text()),
+             color : "#46BFBD"
+         },
+         {
+             label: "RE",
+             value : parseInt($("#viewprofile .data #RE_num").text()),
+             color : "#FDB45C"
+         },
+         {
+             label: "WA",
+             value : parseInt($("#viewprofile .data #WA_num").text()),
+             color : "#949FB1"
+         },
+         {
+             label: "Other",
+             value : parseInt($("#viewprofile .data #Other_num").text()),
+             color : "#4D5360"
+         }
+    ];
+    var myDoughnut = new Chart(document.getElementById("canvas").getContext("2d")).Doughnut(Data);
+
 });

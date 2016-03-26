@@ -2,7 +2,7 @@
 class serverController extends Controller 
 {
         private $num_var = array('skip','num','user_id','problem_id','run_id',
-                                'judge_status','used_time','used_limit','language_id');
+                                'judge_status','used_time','used_limit','language_id','father');
             
             
             
@@ -178,6 +178,33 @@ class serverController extends Controller
 //                return;
             $this->M->submit($arr);
             // $language_id = $this->M->getLanguageId($arr['language'])
+            
+        }
+    
+        public function discussSubmit()
+        {
+            $this->needLogin();
+            $this->checkParam($_POST,array('problem_id'=>1,'father'=>1,'content'=>0));
+            $arr = array('problem_id','father','content');
+            $arr = $this->checkRealParam($arr);
+            $arr = $this->convertParam($arr);
+            
+            if(!$arr['content'])
+            {
+                echo json_encode(array('flag'=>false,'info'=>'Empty Content'));
+                return;
+            }
+            
+            $deep = $this->M->checkDiscuss($arr['problem_id'],$arr['father']);
+            $arr['deep'] = $deep+1;
+            $arr['user_id'] = intval($_SESSION['user_id']);
+            $arr['time'] = time();
+            
+            
+            
+            $this->M->discussSubmit($arr);
+            
+            
             
         }
     

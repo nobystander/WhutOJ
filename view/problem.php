@@ -1,5 +1,6 @@
 <!--
 $page_title
+$problem_id
 $title
 $time_limit
 $memory_limit
@@ -21,12 +22,12 @@ $source
         <div class="limit">
             <span>Time Limit: <span class="badge"><?php echo $time_limit; ?></span>&thinsp;s</span>
             <span>　　　</span>
-            <span>Memory Limit: <span class="badge"><?php echo $memory_limit; ?></span>&thinsp;KB</span>
+            <span>Memory Limit: <span class="badge"><?php echo $memory_limit; ?></span>&thinsp;MB</span>
         </div>
         <div class="btn-group problem-bar">
             <button type="button" class="btn btn-default"><a href="/index.php?controller=status">Status</a></button>
-            <button type="button" class="btn btn-default"><a href="#">Statistics</a></button>
-            <button type="button" class="btn btn-default"><a href="#">Discuss</a></button>
+            <button type="button" class="btn btn-default"><a href="/index.php?controller=statistics&problem_id=<?php echo $problem_id; ?>">Statistics</a></button>
+            <button type="button" class="btn btn-default"><a href="/index.php?controller=discuss&problem_id=<?php echo $problem_id; ?>">Discuss</a></button>
         <?php
             if(isset($_SESSION['user_id']))
                 echo '<a href="/index.php?controller=submit&problem_id='. $problem_id .'"><button type="button" class="btn btn-primary">Submit</button></a>';
@@ -91,8 +92,8 @@ $source
         </div>
         <div class="btn-group problem-bar">
             <button type="button" class="btn btn-default"><a href="/index.php?controller=status">Status</a></button>
-            <button type="button" class="btn btn-default"><a href="#">Statistics</a></button>
-            <button type="button" class="btn btn-default"><a href="#">Discuss</a></button>
+            <button type="button" class="btn btn-default"><a href="/index.php?controller=statistics&problem_id=<?php echo $problem_id; ?>">Statistics</a></button>
+            <button type="button" class="btn btn-default"><a href="/index.php?controller=discuss&problem_id=<?php echo $problem_id; ?>">Discuss</a></button>
             <?php
             if(isset($_SESSION['user_id']))
                 echo '<a href="/index.php?controller=submit&problem_id='. $problem_id .'"><button type="button" class="btn btn-primary">Submit</button></a>';

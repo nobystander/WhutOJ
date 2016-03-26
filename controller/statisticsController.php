@@ -19,6 +19,18 @@ class statisticsController extends Controller
         $data['problem_rank'] = $this->M->getProblemRank($problem_id);
        
         
+        $data['CE_num'] =  $this->M->getProblemSubmitResultNum($problem_id,2);
+        $data['AC_num'] =  $this->M->getProblemSubmitResultNum($problem_id,3);
+        $data['RE_num'] = $this->M->getProblemSubmitResultNum($problem_id,4);
+        $data['WA_num'] = $this->M->getProblemSubmitResultNum($problem_id,5);
+        
+        $data['Other_num'] = 0;
+        for($i = 6;$i <= 9;$i++)
+            $data['Other_num'] += $this->M->getProblemSubmitResultNum($problem_id,$i);
+            
+        $script = $this->convertScript(array('chart.min','statistics'));
+        $data['script'] = $script;
+        
         $this->showTemplate('statistics',$data);
     }
     

@@ -289,6 +289,7 @@ var createProblemList = function () {
                 data = "addition=" + encodeURIComponent(arguments[0]);
                 tmp = arguments[0];
             }
+            
             $.post("http://" + window.location.host + "/index.php?app=admin&controller=backend&action=getTotalProblemNum",data, function(json) {
                 var item = json;
                 var num = Math.ceil(item/problemlist_item_per_page);
@@ -492,7 +493,7 @@ var createBackend = function () {
 
     /*..................................*/
     var choosed_problem_id = 0;
-    /*................PROBLEMLIST...................*/
+    /*................BACKEND...................*/
 
     return {
         addProblemSubmit : function () //JS刷新Status页面，包括table和分页
@@ -635,7 +636,7 @@ var decorateBackend = function() {
 };
 
 var getBackend = decorateBackend();
- $("#backend #view-status-tab").tab('show');
+ $("#backend #view-problem-tab").tab('show');
 
 $(document).ready(function(){
     getProblemList().startProblemListPage();

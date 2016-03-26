@@ -441,6 +441,43 @@ class serverModel extends Model
         $list = array('flag'=>'true');
         echo json_encode($list);
     }
+    
+    
+    public function checkDiscuss($problem_id,$father)
+    {
+        $sql = "SELECT * FROM oj_problem WHERE problem_id=:problem_id AND visible=1";
+        $data = $this->db->query($sql,array('problem_id'=>$problem_id));
+        if(!count($data))
+        {
+            echo '<div class="row">';
+            echo '<div class="alert alert-danger" style="text-align:center" role="alert">';
+            echo 'Wrong Param';
+            echo '</div>';
+            exit();
+        }
+        if($father == 0) return 0;
+        
+        $sql = "SELECT * FROM oj_discuss_:problem_id WHERE discuss_id=:discuss_id";
+        $data = $this->db->query($sql,array('problem_id'=>$problem_id,'discuss_id'=>$father));
+        if(!count($data))
+        {
+            echo '<div class="row">';
+            echo '<div class="alert alert-danger" style="text-align:center" role="alert">';
+            echo 'Wrong Param';
+            echo '</div>';
+            exit();
+        }
+        return $data[0]['deep'];
+        
+    }
+    
+    public function discussSubmit($arr)
+    {
+        $sql = "INSERT INTO oj_discuss_:problem_id (content,user_id,time,father,deep) VALUES(:content,:user_id,:time,:father,:deep)";
+        $this->db->execute($sql,$arr);
+        echo json_encode(array('flag'=>true));
+        return;
+    }
    
 }
 
