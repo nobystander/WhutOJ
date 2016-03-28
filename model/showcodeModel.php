@@ -68,6 +68,17 @@ class showcodeModel extends Model
             
     }
     
+    public function isAdmin()
+    {
+        if(!isset($_SESSION['user_id'])) return false;
+        $user_id = intval($_SESSION['user_id']);
+        
+        $sql = "SELECT role FROM oj_user WHERE user_id=:user_id";
+        $data = $this->db->query($sql,array('user_id'=>$user_id));
+        return count($data) && $data[0]['role'] == 1;
+        
+    }
+    
     
 }
     

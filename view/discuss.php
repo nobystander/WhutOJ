@@ -13,7 +13,9 @@ array $data
 
 <div class="wrapper" id="discuss">
 	<div class="container">
-        <br />
+    <?php
+        require_once('./view/template/announcement.php');
+    ?>
         <div class="discuss-header">
             <h2>Problem <span class="problem-id"><?php echo $problem_id;?></span> : <?php echo $title;?> </h2>
         </div>

@@ -18,6 +18,9 @@ $source
 ?>
 <div class="wrapper">
     <div class="container" id="problem-container">
+    <?php
+        require_once('./view/template/announcement.php');
+    ?>
         <h2 class="center-text"><?php echo $title; ?></h2>
         <div class="limit">
             <span>Time Limit: <span class="badge"><?php echo $time_limit; ?></span>&thinsp;s</span>

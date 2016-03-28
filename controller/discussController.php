@@ -22,7 +22,7 @@ class discussController extends Controller
         
         $script = $this->convertScript(array('jquery.validate.min','discuss'));
         $data['script'] = $script;
-        
+        $data['enable_mathjax'] = 1;
         $this->showTemplate('discuss',$data);
     }
     

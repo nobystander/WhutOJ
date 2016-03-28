@@ -65,15 +65,41 @@ class problemModel extends Model
         return $data[0]['title'];
     }
     
+    
+    
+    public function isAdmin()
+    {
+        if(!isset($_SESSION['user_id'])) return false;
+        $user_id = intval($_SESSION['user_id']);
+        
+        $sql = "SELECT role FROM oj_user WHERE user_id=:user_id";
+        $data = $this->db->query($sql,array('user_id'=>$user_id));
+        return count($data) && $data[0]['role'] == 1;
+        
+    }
+    
     public function checkProblemId($problem_id)
     {
-        $sql = "SELECT * FROM oj_problem WHERE problem_id=:problem_id AND visible=1";
+        $sql = "SELECT * FROM oj_problem WHERE problem_id=:problem_id";
         $data = $this->db->query($sql,array('problem_id'=>$problem_id));
         if(!count($data))
         {
             echo '<div class="row">';
             echo '<div class="alert alert-danger" style="text-align:center" role="alert">';
             echo 'Wrong Param';
+            echo '</div>';
+            exit();
+        }
+        
+        if($this->isAdmin()) return;
+        
+        $sql = "SELECT * FROM oj_problem WHERE problem_id=:problem_id AND visible=1";
+        $data = $this->db->query($sql,array('problem_id'=>$problem_id));
+        if(!count($data))
+        {
+            echo '<div class="row">';
+            echo '<div class="alert alert-danger" style="text-align:center" role="alert">';
+            echo 'Do not have the access';
             echo '</div>';
             exit();
         }

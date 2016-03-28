@@ -70,6 +70,7 @@ class backendController extends Controller
     
         public function addProblem()
         {
+            
             $this->checkAdminLogin();
             if(empty($_FILES['data']) || $_FILES['data']['type'] != 'application/x-tar')
             {
@@ -83,8 +84,8 @@ class backendController extends Controller
                         'input','output','sample_input','sample_output','hint','source','visible'));
             if(!isset($arr['visible']))
                 $arr['visible'] = 0;
-            $arr = $this->convertParam($arr);
-    
+            $arr = $this->convertParam($arr);            
+            
             $arr1 = $this->subParam($arr,array('title','time_limit','memory_limit','source','visible'));
             $problem_id = $this->M->addProblem($arr1);
             $arr2 = $this->subParam($arr,array('description','input','output','sample_input',
@@ -189,30 +190,49 @@ class backendController extends Controller
             $this->M->getRunLog($arr);
         }
     
+        public function loadAnnouncement()
+        {
+            $this->checkAdminLogin();
+            $dir = CONFIG_PATH . '/announcement.txt';
+            echo @file_get_contents($dir);
+        }
     
-     final protected function checkAdminLogin()
-    {
-        $flag = true;
-        if(!isset($_SESSION['user_id']))
-            $flag = false;
-        
-        if($flag)
+        public function changeAnnouncement()
         {
-            $user_id = intval($_SESSION['user_id']);
-            if(!$this->M->checkAdminLogin(array('user_id'=>$user_id)))
+            $this->checkAdminLogin();
+            $this->checkParam($_POST,array('content'=>0));
+            $content = $_POST['content'];
+            $dir = CONFIG_PATH . '/announcement.txt';
+            @file_put_contents($dir,$content);
+            echo 'OK';
+        }
+
+    
+        final protected function checkAdminLogin()
+        {
+            $flag = true;
+            if(!isset($_SESSION['user_id']))
                 $flag = false;
+
+            if($flag)
+            {
+                $user_id = intval($_SESSION['user_id']);
+                if(!$this->M->checkAdminLogin(array('user_id'=>$user_id)))
+                    $flag = false;
+            }
+
+            if(!$flag)
+            {
+                echo '<div class="row">';
+                echo '<div class="alert alert-danger" style="text-align:center" role="alert">';
+                echo 'Do not have access to access this page';
+                echo '</div>';
+                exit();
+            }
+
         }
-            
-        if(!$flag)
-        {
-            echo '<div class="row">';
-            echo '<div class="alert alert-danger" style="text-align:center" role="alert">';
-            echo 'Do not have access to access this page';
-            echo '</div>';
-            exit();
-        }
-        
-    }
+
+    
     
 }
 

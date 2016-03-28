@@ -1,1 +1,1 @@
-For each case, output A + B in one line.
+Output A + B in one line.

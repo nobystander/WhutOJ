@@ -1,4 +1,0 @@
-code.cpp: In function ‘int main()’:
-code.cpp:9:21: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
- scanf("%d %d",&a,&b);
-                     ^

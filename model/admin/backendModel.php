@@ -43,7 +43,7 @@ class backendModel extends Model
         $sql = "INSERT INTO oj_problem(title,source,add_time,time_limit,memory_limit,visible) VALUES(:title,:source,NOW(),:time_limit,:memory_limit,:visible)";
         $this->db->execute($sql,$arr); 
         $problem_id = $this->db->getLastId();
-        $sql = "CREATE TABLE IF NOT EXISTS oj_discuss_:problem_id (content VARCHAR(50) NOT NULL , user_id INT NOT NULL, time INT NOT NULL,father INT NOT NULL,deep INT NOT NULL)";
+        $sql = "CREATE TABLE IF NOT EXISTS oj_discuss_:problem_id (content VARCHAR(50) NOT NULL , user_id INT NOT NULL, time INT NOT NULL,father INT NOT NULL,deep INT NOT NULL) DEFAULT CHARSET=utf8";
         $this->db->execute($sql,array('problem_id'=>$problem_id));
         $sql = "ALTER TABLE oj_discuss_:problem_id  ADD discuss_id INT NOT NULL AUTO_INCREMENT FIRST,ADD PRIMARY KEY (discuss_id)";
         $this->db->execute($sql,array('problem_id'=>$problem_id));
@@ -111,6 +111,15 @@ class backendModel extends Model
                 echo json_encode($list);
                 return;
             }
+            
+//            if(!system('tar -xvf '. ($data_dir .'/tmp.tar')))
+//            {
+//                $list = array();
+//                $list['flag'] = false;
+//                $list['info'] = 'tar -xvf '. ($data_dir .'/tmp.tar');
+//                echo json_encode($list);
+//                return;
+//            }
 
             if(!file_exists($data_dir.'/input') || !file_exists($data_dir.'/output'))
             {

@@ -50,7 +50,7 @@ $page_tile  页名
                     </div>
                     <div class="modal-footer">
                         <span class="modal-error login-info" style="display:none"></span>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">SignUp</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                         <button type="button" class="btn btn-primary submit" onclick="getHeader().login()" data-loading-text="Loading..." autocomplete="off" >LogIn</button>
                     </div>
                 </div>

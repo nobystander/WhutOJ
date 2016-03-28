@@ -12,7 +12,10 @@ class showcodeController extends Controller
         $this->checkParam($arr,array('run_id'=>1));
         $run_id = intval($arr['run_id']);
         $user_id = $this->M->getSubmitUserId($run_id);
-        $this->checkLogin($user_id);
+        if(!$this->M->isAdmin())
+        {
+            $this->checkLogin($user_id);
+        }
         $language_id = intval($this->M->getSubmitLanguageId($run_id));
         $language = $this->M->getLanguageName($language_id);
         $result = $this->M->getSubmitResult($run_id);

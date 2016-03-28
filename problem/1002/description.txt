@@ -1,3 +1,0 @@
-CRB has a tree, whose vertices are labeled by 1, 2, …, N. They are connected by N – 1 edges. Each edge has a weight.
-For any two vertices u and v(possibly equal), f(u,v) is xor(exclusive-or) sum of weights of all edges on the path from u to v.
-CRB’s task is for given s, to calculate the number of unordered pairs (u,v) such that f(u,v) = s. Can you help him?

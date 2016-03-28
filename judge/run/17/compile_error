@@ -1,7 +1,0 @@
-code.cpp: In function ‘int main()’:
-code.cpp:6:9: error: ‘x’ was not declared in this scope
- int a,b;x
-         ^
-code.cpp:7:1: error: expected ‘;’ before ‘scanf’
- scanf("%d %d",&a,&b);
- ^

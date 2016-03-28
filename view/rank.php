@@ -3,6 +3,9 @@
 ?>
 <div class="wrapper" id="rank-list">
     <div class="container">
+    <?php
+        require_once('./view/template/announcement.php');
+    ?>
         <form action="javascript:void(0)" class="form-inline submit-search">
             <div class="form-group">
                 <label for="username-search">Username:</label>

@@ -24,6 +24,10 @@ $is_self
 
 <div class="wrapper" id="viewprofile">
 	<div class="container">
+        <?php
+            require_once('./view/template/announcement.php');
+        ?>
+        
 		<div class="row">
 			<div class="col-md-6 div-profile">
                 <form class="form-horizontal">

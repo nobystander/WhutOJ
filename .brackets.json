@@ -1,0 +1,5 @@
+{
+    "jscodehints.detectedExclusions": [
+        "/var/www/html/view/js/mathjax/extensions/TeX/enclose.js"
+    ]
+}

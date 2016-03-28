@@ -9,6 +9,9 @@ $page_title
 
 <div class="wrapper">
     <div class="container" id="statistics">
+    <?php
+        require_once('./view/template/announcement.php');
+    ?>
         <div class="row">
             <div class="col-md-8 problem-rank">
                 <h2>Top20 Submit</h2>

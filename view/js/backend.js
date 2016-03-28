@@ -516,7 +516,7 @@ var createBackend = function () {
                     var flag = json.flag;
                     if(!flag)
                     {
-                        alert(flag);
+                        alert(json.info);
                     }
                     else
                     {
@@ -533,6 +533,7 @@ var createBackend = function () {
         
         editProblemSubmit : function()
         {
+            var that = this;
             if(!$("#backend #edit-problem-form").valid()) return;
             
             $("#backend #edit-problem-form .submit").button('loading');
@@ -556,7 +557,8 @@ var createBackend = function () {
                     }
                     else
                     {
-                        $("#backend #view-problem-tab").tab('show');
+                        that.editOut();
+                     //   $("#backend #view-problem-tab").tab('show');
                     }
                 },
                 error : function(json) {
@@ -617,6 +619,27 @@ var createBackend = function () {
             },"json");
             
         },
+        
+        loadAnnouncement : function()
+        {
+             $.post("http://" + window.location.host + "/index.php?app=admin&controller=backend&action=loadAnnouncement",'', function(json)
+            {
+                 $("#backend #announcement textarea").text(json);
+            });
+        },
+        
+        changeAnnouncement : function()
+        {
+            var t = $("#backend #announcement textarea").val();
+            var data = 'content=' + t;
+            $("#backend #announcement button").button('loading');
+            $.post("http://" + window.location.host + "/index.php?app=admin&controller=backend&action=changeAnnouncement",data, function(json)
+            {
+             //   alert(json);
+                $("#backend #announcement button").button('reset');
+                location.reload();
+            });
+        },
   
 
 
@@ -636,16 +659,19 @@ var decorateBackend = function() {
 };
 
 var getBackend = decorateBackend();
- $("#backend #view-problem-tab").tab('show');
 
 $(document).ready(function(){
     getProblemList().startProblemListPage();
     getStatus().startStatusPage(); 
+    getBackend().loadAnnouncement();
     $("#backend #view-problem-tab").on('show.bs.tab',function(e){
         getProblemList().startProblemListPage();
     });
     $("#backend #view-status-tab").on('show.bs.tab',function(e){
         getStatus().startStatusPage(); 
+    });
+    $("#backend #announcement-tab").on('show.bs.tab',function(e){
+        getBackend().loadAnnouncement();
     });
     
 });

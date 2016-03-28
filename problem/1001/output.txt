@@ -1,1 +1,0 @@
-For each test case, output “Yes” if CRB can convert s to t, otherwise output “No”.

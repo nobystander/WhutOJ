@@ -8,6 +8,10 @@ $problem_id
 
 <div class="wrapper" id="submit" >
 	<div class="container">
+    <?php
+        require_once('./view/template/announcement.php');
+    ?>
+        
 	<form role="form" class="form-horizontal submit" action="#" method="POST">
 		<fieldset>
 			<div class="form-group">

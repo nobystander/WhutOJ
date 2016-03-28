@@ -17,10 +17,7 @@ class submitController extends Controller
         $this->showTemplate('submit',$data);
     }
     
-//    public function test()
-//    {
-//        $this->M->test();
-//    }
+
 }
 
 ?>

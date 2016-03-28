@@ -12,6 +12,9 @@ $compile_error;
 
 <div class="wrapper" id="showcode">
 	<div class="container">
+    <?php
+        require_once('./view/template/announcement.php');
+    ?>
         <?php
         if($compile_error)
         {
@@ -28,10 +31,8 @@ $compile_error;
         <div class="codebox">
             <pre>
             <?php 
-                echo '<code class="language-'.$language.'">'
-            ?>
-        <?php echo $code; ?>
-            </code>
+                echo '<code class="language-'.$language.'">'.$code;
+            ?></code>
             </pre>
         </div>
         

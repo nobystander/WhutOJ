@@ -6,6 +6,9 @@
 ?>
 <div class="wrapper" id="contest">
     <div class="container">
+    <?php
+        require_once('./view/template/announcement.php');
+    ?>
         <div class="contest-title">
             <h1><?php echo $contest_title; ?></h1>
         </div>

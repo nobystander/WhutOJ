@@ -9,7 +9,8 @@
             <li role="presentation" class="active"><a href="#add-problem" aria-controls="add-problem" role="tab" data-toggle="tab" id="add-problem-tab">Add problem</a></li>
             <li role="presentation"><a href="#edit-problem" aria-controls="edit-problem" role="tab" data-toggle="tab" id="edit-problem-tab">Edit problem</a></li>
             <li role="presentation"><a href="#view-problem" aria-controls="view-problem" role="tab" data-toggle="tab" id="view-problem-tab">View problem</a></li>
-            <li role="presentation"><a href="#view-status" aria-controls="settings" role="tab" data-toggle="tab" id="view-status-tab" >View status</a></li>
+            <li role="presentation"><a href="#view-status" aria-controls="view-status" role="tab" data-toggle="tab" id="view-status-tab" >View status</a></li>
+            <li role="presentation"><a href="#announcement" aria-controls="announcement" role="tab" data-toggle="tab" id="announcement-tab" >Announcement</a></li>
         </ul>
 
         <div class="tab-content">
@@ -68,13 +69,13 @@
                     <div class="form-group">
                         <label for="data">Data</label>
                         <input type="file" class="data" name="data">
-                        <p class="help-block">题目数据,注意: 必须上传.zip文件,并且里面只有2个文件夹：input和output. input文件夹中的数据命名为input000,input001... ,对应output中的文件为output000,output001....</p>
+                        <p class="help-block">题目数据,注意: 必须上传.tar文件,并且里面只有2个文件夹：input和output. input文件夹中的数据命名为input000,input001... ,对应output中的文件为output000,output001....</p>
                     </div>
 
 
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" name="visiable" value="1"> Visible?
+                            <input type="checkbox" name="visible" value="1"> Visible?
                         </label>
                     </div>
 
@@ -151,7 +152,7 @@
                         <label for="data">Data</label>
                         <input type="file" class="data" name="data">
                         <p class="text-danger">如果无需改动数据，请勿上传文件，否则上传全部完整数据</p>
-                        <p class="help-block">题目数据,注意: 必须上传.zip文件,并且里面只有2个文件夹：input和output. input文件夹中的数据命名为input000,input001... ,对应output中的文件为output000,output001....</p>
+                        <p class="help-block">题目数据,注意: 必须上传.tar文件,并且里面只有2个文件夹：input和output. input文件夹中的数据命名为input000,input001... ,对应output中的文件为output000,output001....</p>
                     </div>
 
 
@@ -220,8 +221,8 @@
                         <table>
                             <tr class="table-row">
                                 <td class="flag" style="text-align:center">√</td>
-                                <td class="id"><a href=""></a></td>
-                                <td class="title"><a href=""></a></td>
+                                <td class="id"><a href="" target="_blank"></a></td>
+                                <td class="title"><a href="" target="_blank"></a></td>
                                 <td class="source"><a href="javascript:void(0)"></a></td>
                                 <td class="visible">
                                     <div class="btn-group" data-toggle="buttons">
@@ -298,9 +299,9 @@
                     <div class="table-item">
                         <table>
                             <tr class="table-row">
-                                <td class="run-id"><a href="#"></a></td>
-                                <td class="problem-id"><a href="#"></a></td>
-                                <td class="username"><a href="#"></a></td>
+                                <td class="run-id"><a href="#" target="_blank"></a></td>
+                                <td class="problem-id"><a href="#" target="_blank"></a></td>
+                                <td class="username"><a href="#" target="_blank"></a></td>
                                 <td class="result">
                                     <a href="#" data-toggle="modal" data-target="#show-result-log">
                                     </a>
@@ -314,6 +315,22 @@
                         </table>
                     </div>
                 </div>
+            </div>
+            
+            
+            <div role="tabpanel" class="tab-pane fade" id="announcement">
+                <br />
+                <form>
+                    <div class="form-group">
+                        <label for="content">Here</label>
+                        <textarea class="form-control content" name="content" rows="5">
+                        </textarea>
+                        <br />
+                        <button  type="button" class="btn btn-primary submit" onclick="getBackend().changeAnnouncement()" data-loading-text="Loading..." style="float:right">Save</button>
+                    </div>
+                
+                </form>
+                
             </div>
         </div>
 
