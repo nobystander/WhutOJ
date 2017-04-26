@@ -1,1 +1,9 @@
-dependency: ubuntu 14.04 LAMP G++,GCC(4.8),java rabbitmq php ssh php-ssh2 php-bcmath php-mbstring php-amqp php-amqplib php-mysql libapache2-mod-php 
+dependency: 
+**ubuntu 14.04 LTS**  
+G++,GCC(4.8),
+default-jdk 
+rabbitmq 
+php5 
+php5-mysql 
+libapache2-mod-php 
+libssh2-php
